@@ -1,0 +1,298 @@
+{
+  "meta": {
+    "description": "Defines the 7 session types used in the Tarbiyyah Audit. Each session type has specific context fields, a scan-for prompt list, and a mapping to relevant framework indicators. Indicators marked 'primary' are the main focus; 'secondary' are also assessable. Indicators NOT in either list should be scored N/A for that session type."
+  },
+
+  "sessionTypes": {
+    "classroom": {
+      "name": "Classroom Observation",
+      "description": "Observation of one teacher in one lesson, ~50 minutes. The most frequent session type during the audit.",
+      "icon": "Eye",
+      "primaryFrameworks": ["F1"],
+      "secondaryFrameworks": ["F3B", "F3C"],
+      "primaryIndicators": [
+        "1A1", "1A2", "1A3", "1A4", "1A5",
+        "1B1", "1B2", "1B3", "1B4", "1B5",
+        "1C1", "1C2", "1C3", "1C4", "1C5",
+        "1D1", "1D2", "1D3", "1D4"
+      ],
+      "secondaryIndicators": [
+        "3B1", "3B2", "3B3", "3B4", "3B5",
+        "3C1", "3C2", "3C3", "3C4", "3C5"
+      ],
+      "contextFields": [
+        { "key": "teacher_name", "label": "Teacher name", "type": "text", "required": true },
+        { "key": "subject", "label": "Subject", "type": "text", "required": true },
+        { "key": "year_group", "label": "Year group", "type": "text", "required": true },
+        { "key": "lesson_topic", "label": "Lesson topic", "type": "text", "required": false },
+        { "key": "class_size", "label": "Class size", "type": "number", "required": false },
+        { "key": "gender_mix", "label": "Gender mix", "type": "text", "required": false },
+        { "key": "lesson_duration", "label": "Lesson duration (minutes)", "type": "number", "required": false }
+      ],
+      "scanFor": [
+        "How the lesson opened (basmala, du'a, niyyah, presence vs rushed)",
+        "Tawheed/Islamic connection made to the subject content",
+        "Prophetic examples or Seerah references used during the lesson",
+        "How a correction or disruption was handled (public vs private, tone)",
+        "Peer dynamics - do students treat each other with ukhuwwah or not?",
+        "Physical environment - walls, displays, Islamic presence, currency of displays",
+        "Questions asked - comprehension only, or reflective and identity-engaging?",
+        "Student voice - are students thinking and contributing, or just answering?",
+        "Teacher's emotional regulation under pressure (any disruption, how it was met)",
+        "Moments where the teacher noticed a struggling or quieter student",
+        "How the lesson closed (Hamdala, du'a, reflection, or just bell)",
+        "Use of student names (positive references vs only corrective)",
+        "Any moment where a student raised a genuine faith question and how it was met",
+        "Differentiation - does the teacher adapt to individual students?",
+        "5D Thinking application - is it visible, planned, integrated, or absent?",
+        "Islamic intellectual tradition referenced (especially in non-Islamic subjects)",
+        "Connection between subject content and the student's iman or identity",
+        "Stories and narrative as teaching tools (Seerah, Quranic stories, lived examples)"
+      ]
+    },
+
+    "teacher_meeting": {
+      "name": "Teacher 1-on-1 Meeting",
+      "description": "Individual conversation with a teacher to understand their formation journey, role identity, and view of the school.",
+      "icon": "UserCheck",
+      "primaryFrameworks": ["F2D", "F3A"],
+      "secondaryFrameworks": ["F2A", "F2C"],
+      "primaryIndicators": [
+        "2D1", "2D2", "2D3", "2D4", "2D5",
+        "3A1", "3A2", "3A3", "3A4", "3A5"
+      ],
+      "secondaryIndicators": [
+        "2A1", "2A4",
+        "2C1", "2C3"
+      ],
+      "contextFields": [
+        { "key": "teacher_name", "label": "Teacher name", "type": "text", "required": true },
+        { "key": "role", "label": "Role / position", "type": "text", "required": true },
+        { "key": "department", "label": "Department / subject area", "type": "text", "required": false },
+        { "key": "years_at_school", "label": "Years at this school", "type": "text", "required": false },
+        { "key": "meeting_duration", "label": "Meeting duration (minutes)", "type": "number", "required": false }
+      ],
+      "scanFor": [
+        "Can they articulate the school's tarbiyyah vision in their own words?",
+        "Do they describe their role as murabbi or just subject teacher?",
+        "How do they connect 5D, REAL Schools, Murabbi Project, and Islamic Studies?",
+        "What's their own Islamic formation journey - is it supported by the school?",
+        "How do they handle faith questions from students?",
+        "Do they feel overwhelmed by change management fatigue?",
+        "How do they communicate with parents - deficit-focused or formation-focused?",
+        "Can they describe specific students' formation journeys?",
+        "Islamic rationale for behaviour framework - do they have one?",
+        "What Islamic content lives in their general subject (if not Islamic Studies)?",
+        "Do they describe leadership as modelling Islamic character?",
+        "What gets in the way of them being a murabbi - capacity, training, time?",
+        "How do they describe the coherence of school programmes?",
+        "Where do they go for scholarly guidance when they have a question?"
+      ]
+    },
+
+    "teacher_focus_group": {
+      "name": "Teacher Focus Group",
+      "description": "Group discussion with 4-6 teachers, typically across departments. Surfaces collective culture, programme coherence, and shared (or unshared) language.",
+      "icon": "Users",
+      "primaryFrameworks": ["F2D"],
+      "secondaryFrameworks": ["F2A", "F2C"],
+      "primaryIndicators": [
+        "2D1", "2D2", "2D3", "2D4", "2D5"
+      ],
+      "secondaryIndicators": [
+        "2A1", "2A2", "2A3", "2A4", "2A5",
+        "2C1", "2C3"
+      ],
+      "contextFields": [
+        { "key": "participants", "label": "Participants (names or roles)", "type": "textarea", "required": true },
+        { "key": "departments", "label": "Departments represented", "type": "text", "required": false },
+        { "key": "session_focus", "label": "Session focus / theme", "type": "text", "required": false },
+        { "key": "duration", "label": "Duration (minutes)", "type": "number", "required": false }
+      ],
+      "scanFor": [
+        "Shared language across departments, or lack of it",
+        "Do different departments talk to each other about formation?",
+        "Collective sense of purpose vs siloed execution",
+        "How do staff describe leadership - modelling Islamic character?",
+        "Fatigue, workload, capacity for new initiatives",
+        "Which programmes feel coherent, which feel fragmented?",
+        "Who do they see as the scholarly anchor in the school?",
+        "How do they describe the Murabbi Project's actual reach?",
+        "Do they disagree with each other in healthy ways (shura culture)?",
+        "Any tension they're willing to name about the tarbiyyah agenda?",
+        "Is there a common understanding of what a graduate should be?",
+        "Do they speak about students' formation collectively, or only academically?",
+        "How do they describe their own Islamic formation as staff?",
+        "Where are the gaps in cross-departmental tarbiyyah collaboration?"
+      ]
+    },
+
+    "student_focus_group": {
+      "name": "Student Focus Group",
+      "description": "Group discussion with 6-8 students, typically same year group. The only place to gather direct evidence on graduate outcomes, identity, and love of deen.",
+      "icon": "Users",
+      "primaryFrameworks": ["F3D"],
+      "secondaryFrameworks": ["F1", "F2B", "F2C", "F3A", "F3B"],
+      "primaryIndicators": [
+        "3D1", "3D2", "3D3", "3D4", "3D5"
+      ],
+      "secondaryIndicators": [
+        "1A3", "1A4", "1C5", "1D1",
+        "2B2", "2B3", "2B5",
+        "2C3", "2C4", "2C5",
+        "3A2", "3A3", "3A4", "3A5",
+        "3B1", "3B2", "3B5"
+      ],
+      "contextFields": [
+        { "key": "year_group", "label": "Year group", "type": "text", "required": true },
+        { "key": "number_of_students", "label": "Number of students", "type": "number", "required": true },
+        { "key": "gender_mix", "label": "Gender mix", "type": "text", "required": false },
+        { "key": "selection_method", "label": "How were students selected? (random, recommended, mixed)", "type": "text", "required": false },
+        { "key": "duration", "label": "Duration (minutes)", "type": "number", "required": false }
+      ],
+      "scanFor": [
+        "Can students articulate the school's Islamic vision?",
+        "Do they name specific teachers as murabbis? Who?",
+        "Do they feel known by adults beyond their grades?",
+        "Can they describe Islamic content in non-Islamic Studies subjects?",
+        "How do they describe salah at school - meaningful or procedural?",
+        "Is Adab class valuable to them or filler?",
+        "Do they ask faith questions openly, or mask doubts?",
+        "What's their relationship with the Quran - recitation only or tadabbur?",
+        "Identity - confident Muslim, or torn between identities?",
+        "Love of deen - genuine, or performance for school?",
+        "What do they do Islamically that the school didn't teach them?",
+        "Peer culture - is ukhuwwah present, or just general decency?",
+        "Who do they go to with a personal or faith struggle?",
+        "Can they describe how their academic learning connects to their iman?",
+        "Do they have a sense of who they want to be as a Muslim graduate?",
+        "How do they describe their teachers' Islamic character?",
+        "What would they change about the Islamic dimension of their school?"
+      ]
+    },
+
+    "leadership_meeting": {
+      "name": "Leadership Meeting",
+      "description": "Conversation with senior leadership (principal, deputies, head of tarbiyyah). Primary source of evidence for vision, strategic priority, and programme coherence.",
+      "icon": "Building2",
+      "primaryFrameworks": ["F2A"],
+      "secondaryFrameworks": ["F2C", "F2D", "F3D"],
+      "primaryIndicators": [
+        "2A1", "2A2", "2A3", "2A4", "2A5"
+      ],
+      "secondaryIndicators": [
+        "2C1", "2C3",
+        "2D1", "2D5",
+        "3D1", "3D2", "3D3"
+      ],
+      "contextFields": [
+        { "key": "participants", "label": "Participants", "type": "textarea", "required": true },
+        { "key": "roles", "label": "Roles", "type": "text", "required": true },
+        { "key": "session_focus", "label": "Session focus", "type": "text", "required": false },
+        { "key": "duration", "label": "Duration (minutes)", "type": "number", "required": false }
+      ],
+      "scanFor": [
+        "How is the tarbiyyah vision articulated, and does everyone agree?",
+        "Is tarbiyyah resourced (budget, time, accountability)?",
+        "How are trade-offs made when tarbiyyah competes with academic priorities?",
+        "Who is accountable for tarbiyyah outcomes specifically?",
+        "How do they describe the coherence of their programmes?",
+        "What's the plan for scholarly guidance?",
+        "How do they describe their relationship with staff - shura or top-down?",
+        "Graduate profile - is it defined, written, operational?",
+        "Minimum Nisab - how developed is their thinking?",
+        "What signals genuine commitment vs aspirational language?",
+        "Concrete decisions vs general aspirations - what have they actually changed?",
+        "Are there contradictions between what they say and what they describe doing?",
+        "What's their succession plan - if leadership changed, would tarbiyyah survive?",
+        "How do they understand the relationship between Islamic and academic excellence?"
+      ]
+    },
+
+    "environment_walk": {
+      "name": "Environment Walk",
+      "description": "Walk through the school's physical and cultural spaces - corridors, masjid, lunch areas, transitions. Observe what's felt, heard, seen.",
+      "icon": "Building2",
+      "primaryFrameworks": ["F2B"],
+      "secondaryFrameworks": ["F2C"],
+      "primaryIndicators": [
+        "2B1", "2B2", "2B3", "2B4", "2B5"
+      ],
+      "secondaryIndicators": [
+        "2C5"
+      ],
+      "contextFields": [
+        { "key": "areas_covered", "label": "Areas covered", "type": "textarea", "required": true },
+        { "key": "time_of_day", "label": "Time of day", "type": "text", "required": true },
+        { "key": "day_type", "label": "Day type (regular, Friday, event day)", "type": "text", "required": false },
+        { "key": "duration", "label": "Duration (minutes)", "type": "number", "required": false }
+      ],
+      "scanFor": [
+        "Visual Islamic presence in corridors - meaningful or decorative?",
+        "Are displays current, student-generated, connected to learning?",
+        "Salah - how is it conducted, atmosphere, adult presence?",
+        "Transitions between classes - dhikr, adab, rhythm?",
+        "Informal time - student behaviour when unsupervised",
+        "Peer dynamics - visible inclusion or hierarchy?",
+        "Staff presence in informal spaces - relational or supervisory?",
+        "Language overheard - Islamic vocabulary natural or absent?",
+        "Masjid/prayer space - treated as sacred or functional?",
+        "Student self-regulation around Islamic norms without teachers",
+        "Gender dynamics in shared spaces",
+        "How does the school feel different from a non-Islamic school in informal settings?",
+        "Wayfinding and signage - Islamic framing or generic?",
+        "What's the first impression upon entering?"
+      ]
+    },
+
+    "document_review": {
+      "name": "Document Review",
+      "description": "Review of curriculum documents, schemes of work, lesson plans, policies, parent communications.",
+      "icon": "FileText",
+      "primaryFrameworks": ["F3A", "F3B"],
+      "secondaryFrameworks": ["F2A"],
+      "primaryIndicators": [
+        "3A1", "3A2", "3A3", "3A4", "3A5",
+        "3B1", "3B2", "3B3", "3B4", "3B5",
+        "3C5"
+      ],
+      "secondaryIndicators": [
+        "2A1", "2A4",
+        "3D1", "3D2", "3D3"
+      ],
+      "contextFields": [
+        { "key": "document_type", "label": "Document type (scheme of work, lesson plan, policy, etc.)", "type": "text", "required": true },
+        { "key": "year_groups_covered", "label": "Year groups covered", "type": "text", "required": false },
+        { "key": "department", "label": "Department / subject", "type": "text", "required": false },
+        { "key": "document_title", "label": "Document title", "type": "text", "required": false },
+        { "key": "last_updated", "label": "Last updated (if known)", "type": "text", "required": false }
+      ],
+      "scanFor": [
+        "Coherence and sequencing across year groups",
+        "Formation intent built into lesson plans vs content-only",
+        "Tadabbur presence in Quran programme docs",
+        "Applied Islam content - designed or improvised?",
+        "Adab scope and sequence - real progression?",
+        "5D integration visible in general subject schemes of work",
+        "Pastoral/murabbi hooks in lesson design",
+        "Assessment criteria - Islamic framing or purely academic?",
+        "Graduate profile referenced in curriculum design?",
+        "Evidence of review, iteration, improvement over time",
+        "Reflective and experiential components built into the curriculum",
+        "Use of Prophetic stories and Islamic narrative as teaching tools",
+        "Differentiation for formation needs, not just academic",
+        "Quality of writing, professionalism, fitness-for-purpose",
+        "Date of last update - is the document live or dormant?"
+      ]
+    }
+  },
+
+  "sessionStatuses": {
+    "draft": "Session created but no notes yet",
+    "notes": "Notes captured, debrief not yet run",
+    "debrief": "Debrief questions generated, awaiting auditor answers",
+    "scoring": "Scoring in progress",
+    "complete": "Scored and ready for review",
+    "reviewed": "Auditor has confirmed scores"
+  }
+}

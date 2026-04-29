@@ -1,0 +1,110 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "library"
+}
+
+model User {
+  id              String        @id @default(cuid())
+  email           String        @unique
+  passwordHash    String
+  name            String
+  role            String        // "ADMIN", "AUDITOR", "VIEWER"
+  audits          Audit[]       @relation("CreatedAudits")
+  memberships     AuditMember[]
+  sessionsCreated Session[]
+}
+
+model Audit {
+  id           String        @id @default(cuid())
+  name         String
+  schoolName   String
+  startDate    DateTime
+  endDate      DateTime
+  status       String        // "PLANNED", "IN_PROGRESS", "COMPLETED"
+  createdById  String
+  createdBy    User          @relation("CreatedAudits", fields: [createdById], references: [id])
+  members      AuditMember[]
+  sessions     Session[]
+  patterns     Pattern[]
+  remediations Remediation[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model AuditMember {
+  id           String        @id @default(cuid())
+  auditId      String
+  userId       String
+  roleInAudit  String        // "LEAD_AUDITOR", "AUDITOR", "VIEWER"
+  audit        Audit         @relation(fields: [auditId], references: [id], onDelete: Cascade)
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([auditId, userId])
+}
+
+model Session {
+  id               String   @id @default(cuid())
+  auditId          String?
+  type             String
+  status           String   // "draft", "notes", "debrief", "scored"
+  context          String?  // JSON string
+  notes            String?  // Text
+  scanForNotes     String?  // JSON string
+  debriefQuestions String?  // JSON string
+  debriefAnswers   String?  // JSON string
+  scores           String?  // JSON string
+  summary          String?  // Text
+  auditor          String?  // Name from selection
+  createdById      String?
+  createdBy        User?    @relation(fields: [createdById], references: [id])
+  audit            Audit?   @relation(fields: [auditId], references: [id], onDelete: Cascade)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Indicator {
+  code      String @id
+  framework String
+  section   String
+  name      String
+  focus     String
+  rubric    String // JSON string mapped from framework.json
+}
+
+model Pattern {
+  id                 String   @id @default(cuid())
+  auditId            String
+  type               String   // "STRENGTH", "WEAKNESS"
+  title              String
+  description        String
+  supportingEvidence String?  // JSON string of session references
+  status             String   // "DRAFT", "ACCEPTED", "REJECTED"
+  severity           Int?     // 1-5 mapping
+  audit              Audit    @relation(fields: [auditId], references: [id], onDelete: Cascade)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model Remediation {
+  id             String   @id @default(cuid())
+  auditId        String?
+  title          String
+  rationale      String
+  impact         String
+  feasibility    String
+  priorityRank   Int
+  linkedPatterns String?  // JSON string
+  audit          Audit?   @relation(fields: [auditId], references: [id], onDelete: Cascade)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Notepad {
+  id        String   @id @default("global")
+  content   String?  @db.Text
+  updatedAt DateTime @updatedAt
+}

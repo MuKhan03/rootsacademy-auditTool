@@ -1,0 +1,836 @@
+{
+  "meta": {
+    "name": "Roots Academy Tarbiyyah Audit Framework",
+    "version": "1.0",
+    "description": "Three-framework audit for assessing Islamic formation in schools",
+    "scoringScale": {
+      "1": { "level": "Absent", "description": "Element not observed at all during the visit" },
+      "2": { "level": "Emerging", "description": "Briefly or unintentionally present; occurs at most once; minimal or no formation impact" },
+      "3": { "level": "Developing", "description": "Clearly present with some intentionality; inconsistent across the lesson or across student groups" },
+      "4": { "level": "Strong", "description": "Consistent and intentional throughout the observation; clear, observable impact on student thinking or behaviour" },
+      "5": { "level": "Embedded", "description": "Deeply embedded; students actively demonstrate the impact without prompting; culture holds without the teacher driving it" },
+      "NA": { "level": "Not Assessable", "description": "Evidence genuinely insufficient from this session type; do NOT use as low score proxy" }
+    }
+  },
+
+  "frameworks": {
+    "F1": {
+      "name": "Teacher in the Classroom",
+      "centralQuestion": "When a student walks out of this classroom, have they encountered a teacher who models and embodies the values they are being asked to develop, or simply one who delivers content?",
+      "maxScore": 95,
+      "sections": {
+        "1A": {
+          "name": "Teacher Character & Presence",
+          "description": "Does the teacher embody Islamic character in the way they show up, communicate, and relate to students?",
+          "maxScore": 25,
+          "indicators": {
+            "1A1": {
+              "name": "Adab with Students",
+              "focus": "Quality of relational conduct, does it reflect Islamic values of respect, warmth, and dignity in all interactions, including under pressure?",
+              "rubric": {
+                "1": ["Interrupts students mid-sentence or uses sarcastic/dismissive language more than once", "Visible frustration: raised voice, eye-rolls, or sighing during the lesson", "Students appear guarded or compliant, no warmth observable in any interaction"],
+                "2": ["Polite in routine exchanges but lapses into impatience at least once during disruption", "Warmth shown selectively, some students receive it, others visibly do not", "Uses student names mainly in corrective, not positive, contexts"],
+                "3": ["Respectful tone in most interactions; rarely raises voice", "Warmth present but uneven, stronger one-on-one than during whole-class moments", "No Islamic framing of the teacher-student relationship (no husn al-zan, brother/sister language)"],
+                "4": ["Consistent calm and warmth throughout, including during disruptions", "Corrections delivered quietly; names used positively not just correctively", "Islamic framing present at least once (e.g. husn al-zan, ukhuwwah reference)"],
+                "5": ["Students themselves demonstrate the adab they have absorbed, peers don't laugh when someone is corrected", "Culture holds without enforcement: room tone doesn't change if teacher steps out briefly", "Auditor cannot identify a single interaction that compromised student dignity"]
+              }
+            },
+            "1A2": {
+              "name": "Self-Regulation Under Pressure",
+              "focus": "Does the teacher model sabr when disrupted or challenged, or does their emotional state negatively shape the room?",
+              "rubric": {
+                "1": ["Loses composure more than once, raises voice significantly, reacts with sarcasm or visible anger", "Shuts down student questions dismissively at least once", "Room becomes visibly tense when teacher is stressed"],
+                "2": ["Loses composure once, a sharp response or raised voice", "Recovers quickly but does not acknowledge or repair the moment", "Sabr is not named or modelled for students"],
+                "3": ["Generally calm but visible strain during disruption, clipped responses, shortened patience", "No outburst, but composure is effortful rather than natural", "Self-regulation not named or modelled for students"],
+                "4": ["Encounters at least one genuine disruption and responds with composure, voice level and language respectful", "Room is not penalised for one student's behaviour", "If lesson is uneventful, ask students what the teacher does when someone misbehaves"],
+                "5": ["Students self-regulate their own responses in moments of frustration rather than reacting immediately", "If asked, students connect their teacher's composure to Islamic concepts (sabr, hilm)", "Teacher's emotional regulation is a visible formation outcome, not just classroom management"]
+              }
+            },
+            "1A3": {
+              "name": "Building Trust and Rapport",
+              "focus": "Does the teacher genuinely know their students, and do students experience this as safety rather than surveillance?",
+              "rubric": {
+                "1": ["Does not appear to know all students' names", "Interactions are purely instructional, no personal connection observable", "Students seem compliant rather than engaged; no sense they feel known or cared for"],
+                "2": ["Knows some names; makes surface-level attempts to connect", "One-on-one warmth not visible", "Students don't seek out or initiate interaction beyond answering questions"],
+                "3": ["Knows names and shows genuine interest but rapport is primarily whole-class", "Warmth present but students don't feel individually known", "A student carrying something difficult would not necessarily see this teacher as approachable"],
+                "4": ["References individual students meaningfully, acknowledges their context, adapts based on knowing that student", "Students initiate interaction beyond answering questions", "At least one interaction shows prior knowledge of a student's situation or character"],
+                "5": ["Students actively seek out this teacher, observed approaching before or after the lesson without prompting", "When asked who they'd go to with a personal or faith concern, this teacher is named spontaneously", "Students describe feeling genuinely known, not managed"]
+              }
+            },
+            "1A4": {
+              "name": "Modelling Islamic Character",
+              "focus": "Is the teacher's visible conduct itself a lesson in Islamic values, or is Islamic character in words but not in manner?",
+              "rubric": {
+                "1": ["No visible connection between teacher's conduct and Islamic values", "Manner in class is indistinguishable from a secular classroom", "Islamic character may be in lesson content but is not embodied in behaviour"],
+                "2": ["Occasionally uses Islamic language (be patient, have good manners) but own behaviour doesn't consistently reflect it", "The gap between what is said and what is modelled is observable by the auditor", "Islamic character referenced but not lived in the same lesson"],
+                "3": ["Conduct generally consistent with Islamic values, patient, fair, respectful, but the Islamic dimension is implicit", "A student experiences a decent teacher but would not specifically connect the conduct to Islamic character", "Teacher does not name or frame their own behaviour in Islamic terms"],
+                "4": ["At least once, teacher's conduct is itself a visible lesson, acknowledges a mistake naming it as tawadu, shows genuine rahma in student struggle, or names a composed response as sabr", "Islamic character is lived and named, not just assumed", "Students can see Islamic values in action in this classroom"],
+                "5": ["Students can articulate Islamic character they observe in their teacher unprompted, using specific vocabulary (sabr, adl, rahma, tawadu)", "The teacher's character is a point of reference in student conversation", "The modelling has produced observable outcomes in how students speak about and relate to each other"]
+              }
+            },
+            "1A5": {
+              "name": "Dignity in Correction",
+              "focus": "When a student misbehaves or makes an error, does the teacher's response protect student dignity, or diminish it?",
+              "rubric": {
+                "1": ["Corrections are public, harsh, or shaming, sarcasm, calling out errors in front of the class", "At least one corrective interaction leaves a student visibly diminished or embarrassed", "No effort to protect student dignity in any corrective moment observed"],
+                "2": ["Corrections mostly public, delivered to the room rather than the individual", "No active shaming but no active protection of dignity either", "Student reaction (lowered eyes, slumped posture) suggests they feel exposed"],
+                "3": ["Corrections are generally fair but happen publicly by default", "Tone is neutral rather than warm; correction communicates the rule but not care for the student", "No Islamic framing of correction (dignity, growth, reparation)"],
+                "4": ["Default for serious corrections is private, quiet word alongside the desk or a brief step outside", "Minor redirections happen without drawing class attention", "At least once, a correction functions as an invitation rather than a judgment"],
+                "5": ["Students who are corrected look heard, not humiliated", "If a correction happens in view of others, peers respond with gravity not laughter, dignity is peer-to-peer", "After correction, the student re-enters the lesson intact, engagement does not deteriorate"]
+              }
+            }
+          }
+        },
+        "1B": {
+          "name": "Islamic Integration in Lesson Delivery",
+          "description": "Does the teacher connect subject matter to an Islamic worldview, or does the lesson exist in a secular vacuum?",
+          "maxScore": 25,
+          "indicators": {
+            "1B1": {
+              "name": "Tawheed Connection",
+              "focus": "Does the teacher connect subject matter to Allah, creation, or an Islamic worldview? Applies to ALL subjects, not only Islamic Studies.",
+              "rubric": {
+                "1": ["No connection to Allah, Islamic values, or Islamic understanding of the subject", "Intellectual framework is entirely secular, whether in Islamic Studies or Maths", "No tawheedic lens applied at any point during the lesson"],
+                "2": ["A tokenistic mention of Islam, an opening Bismillah without explanation or 'this is part of Allah's creation' tacked on", "Not meaningfully connected to lesson content, could be removed without educational loss", "Students do not engage with the Islamic mention"],
+                "3": ["One or two genuine attempts to connect the lesson to an Islamic perspective", "Intentional but not developed or returned to across the lesson", "The tawheedic lens is an addition to the lesson, not an integration into it"],
+                "4": ["At least one clear, substantive tawheedic connection woven into content, not bolted on at start or end", "Teacher draws a natural link between subject matter and Allah's wisdom or command", "Students respond to the connection, it is not just stated and moved on from"],
+                "5": ["Students articulate the tawheedic dimension of the subject without being prompted", "When asked why this subject matters as a Muslim, students answer substantively with their own reasoning", "The framework has become students' own way of thinking, not a layer the teacher adds"]
+              }
+            },
+            "1B2": {
+              "name": "Gratitude and Basmala Culture",
+              "focus": "Is Islamic intention and gratitude meaningful, or purely habitual? Do students understand why, or are they going through the motions?",
+              "rubric": {
+                "1": ["Lesson begins with no Islamic framing, no Bismillah, du'a, or niyyah", "Opened and closed as a secular lesson would be", "No basmala culture of any kind observable"],
+                "2": ["Teacher opens with Bismillah but it is rushed or done while still arranging materials", "Students follow mechanically, no Hamdala or closing", "Habit without presence: formulaic, not meaningful"],
+                "3": ["Opens with Bismillah with some intentionality, pauses, settles the class first", "Niyyah not explained or connected to the lesson, students follow but don't appear to understand why", "Closing Hamdala may be absent or an afterthought"],
+                "4": ["Opening is intentional and unhurried, teacher briefly names the niyyah", "Students understand why they begin this way, if asked, they can explain in their own words", "Hamdala at the close is present and not perfunctory"],
+                "5": ["Students initiate or lead the basmala culture, a student begins the du'a without being asked", "Students remind each other if it is missed", "Practice is owned by the class, not imposed by the teacher"]
+              }
+            },
+            "1B3": {
+              "name": "Use of Prophetic Examples",
+              "focus": "Is the Seerah a living resource in this teacher's delivery, or is the Prophet (SAW) only referenced in Islamic Studies lessons?",
+              "rubric": {
+                "1": ["No reference to the Prophet (SAW), Sahabah, or Islamic history during the observation", "Even in Islamic Studies, lessons rely on abstract principles without prophetic grounding", "The Seerah does not exist as a formation resource in this classroom"],
+                "2": ["Prophet (SAW) mentioned briefly but not integrated, a passing reference not unpacked", "Connection to lesson content not made clear", "Students don't engage with it, could be cut without changing the lesson"],
+                "3": ["A prophetic example is used to illustrate a point, connection to lesson content is clear", "Remains illustrative: the story supports the point rather than forming the heart of it", "Students receive it passively; they don't engage with or discuss it"],
+                "4": ["At least one prophetic example, ayah, or Seerah narrative genuinely illuminates the lesson theme", "Teacher unpacks it with skill, invites student reflection or connects it to students' own lives", "The Seerah functions as a living reference, not a historical footnote"],
+                "5": ["Students reference prophetic examples independently during the lesson, without being prompted", "When asked which prophetic examples they remember, students answer with depth and personal connection", "Students are carriers of the Seerah, not just recipients of it"]
+              }
+            },
+            "1B4": {
+              "name": "Questions That Develop Thinking About Deen",
+              "focus": "Does the teacher ask questions that invite students to connect knowledge to their identity as Muslims, or are questions used only to check comprehension?",
+              "rubric": {
+                "1": ["Questions are exclusively closed, comprehension checks, factual recall, or procedural", "No question invites students to reflect, apply to life, or connect to their identity as a Muslim", "Teaching is information delivery; students are passive recipients"],
+                "2": ["Occasionally asks a broader question but without Islamic framing or formation intent", "Question fades quickly, lesson moves on regardless of student response", "No genuine expectation that the question will produce reflection"],
+                "3": ["At least one question invites reflection beyond comprehension, a 'why does this matter?' or 'how would a Muslim approach this?'", "Not well-designed or followed through, teacher accepts first response and moves on", "Students are not consistently encouraged to ask their own deeper questions"],
+                "4": ["Uses 2-3 questions clearly designed to connect knowledge to Islamic identity", "Students engage genuinely, questions are taken seriously and discussed, not skimmed", "Teacher responds to student thinking with real curiosity"],
+                "5": ["Students generate their own questions connecting lesson content to their deen without being prompted", "Classroom is a space of genuine Islamic inquiry, students push back and develop each other's thinking", "Teacher facilitates rather than leads; the inquiry is student-driven"]
+              }
+            },
+            "1B5": {
+              "name": "Integration with 5D Thinking Framework",
+              "focus": "Does the teacher apply the school's 5D Thinking approach? Applies to ALL subject teachers, for Islamic Studies, explicit 5D connection; for general subjects, tawheed-integrated delivery.",
+              "rubric": {
+                "1": ["No evidence of 5D Thinking or tawheed-integrated delivery", "Teacher appears unaware of the framework, or aware but entirely ignoring it", "Lesson is delivered with no Islamic epistemological framing whatsoever"],
+                "2": ["Aware of 5D framework and mentions it but doesn't meaningfully apply it", "Any integration attempt feels forced or tokenistic and is not returned to", "Teacher cannot explain how 5D Thinking applies to their subject"],
+                "3": ["Makes a genuine attempt to apply the 5D framework, connects the subject to tawheed in one part of the lesson", "Integration works in one part and disappears in another", "Feels like something still being learned rather than embedded in planning"],
+                "4": ["5D framework is a visible, natural part of how the teacher has planned and delivers the lesson", "Integration feels organic, not performed, students can see the Islamic dimension of what they studied", "If asked after the lesson, students can articulate the Islamic dimension of their subject"],
+                "5": ["Students use 5D language or a tawheedic lens independently during the lesson", "When asked what their faith has to do with this subject, students answer substantively without hesitation", "The framework has become students' own intellectual tool, not a layer the teacher adds"]
+              }
+            }
+          }
+        },
+        "1C": {
+          "name": "Classroom Environment & Culture",
+          "description": "Does the physical and emotional environment of the classroom reflect Islamic values?",
+          "maxScore": 25,
+          "indicators": {
+            "1C1": {
+              "name": "Physical Environment",
+              "focus": "Does the classroom communicate an active Islamic identity connected to formation? Assess what this teacher has built in their own room, not shared corridors (Framework 2).",
+              "rubric": {
+                "1": ["Classroom displays are entirely academic or generic, no Islamic content whatsoever", "A visitor would not know this is an Islamic school from this room alone", "Islamic identity is entirely absent from the physical environment"],
+                "2": ["A token Islamic element present, a Quranic ayah or calligraphy poster, but incidental", "Unrelated to current learning, unchanged across the year, not engaged with by teacher or students", "It is decoration, not formation"],
+                "3": ["Several Islamic elements visible, du'a, hadith, character reminders, some connected to the subject", "Static: unchanged for months, students no longer notice them", "Teacher does not reference them in lessons"],
+                "4": ["Displays are connected to current learning themes, recently updated or created with student input", "Teacher references wall displays in lessons", "A visitor can read this room and understand something about what this class is working on spiritually and academically"],
+                "5": ["Students have contributed to and take visible ownership of the Islamic environment", "Displays include student work reflecting genuine formation, their own reflections or creations alongside Islamic texts", "Students notice and reference the walls, the room reflects their formation journey"]
+              }
+            },
+            "1C2": {
+              "name": "Culture of Respect and Cooperation",
+              "focus": "Do students treat each other with Islamic fraternity? Assess what this teacher has cultivated in their room, not school-wide peer culture (Framework 2).",
+              "rubric": {
+                "1": ["Student interactions reflect no Islamic framing, dismissiveness, laughing at wrong answers, visible social exclusion", "Teacher does not address unkind peer dynamics or connect them to Islamic values", "Islamic brotherhood/sisterhood is entirely absent from how students relate"],
+                "2": ["Teacher promotes general respect but without Islamic framing", "Students comply when reminded but revert quickly", "Ukhuwwah, brotherhood/sisterhood rooted in shared faith, is entirely absent"],
+                "3": ["Teacher occasionally references Islamic values in peer relations, 'we're brothers and sisters', 'give husn al-zan'", "Students generally cooperate but Islamic framing is occasional, not embedded", "Cooperation is compliance-driven rather than values-driven"],
+                "4": ["Teacher has cultivated a culture where Islamic brotherhood/sisterhood is an operative value, not just a phrase", "When a student struggles, others don't laugh, not from fear of the teacher but because the culture doesn't permit it", "Teacher explicitly frames cooperation in Islamic terms at least once during the observation"],
+                "5": ["Students demonstrate ukhuwwah spontaneously, helping without being asked, including quieter students, defending peers", "Students can articulate why they treat each other this way and connect it to shared Muslim identity", "Culture holds in the teacher's absence"]
+              }
+            },
+            "1C3": {
+              "name": "Accountability Without Humiliation",
+              "focus": "Does accountability reflect the Islamic balance of justice and rahma? Focus on this teacher's practice, not the school-wide behaviour system (Framework 2).",
+              "rubric": {
+                "1": ["Consequences are public, harsh, or shaming, sarcasm, calling out behaviour loudly, disproportionate consequences", "At least one incident observed that leaves a student publicly diminished", "No effort to protect student dignity in any corrective moment"],
+                "2": ["Consequences are inconsistent, sometimes private and proportionate, sometimes public and reactive", "Teacher's approach shaped by their own frustration level rather than a consistent principle", "Students appear uncertain about what to expect"],
+                "3": ["Consequences generally fair and not punitive but applied procedurally", "Rule enforced, consequence given, without connection to growth, restoration, or Islamic concepts of tawbah", "Accountability is about compliance, not formation"],
+                "4": ["Consequences are clearly related to the behaviour, reasoned, and private where appropriate", "At least once, teacher frames accountability beyond the rule, naming impact on others, inviting reflection, connecting to a shared value", "An Islamic concept of accountability is referenced or the approach is fully consistent with it"],
+                "5": ["Students articulate the reason for accountability in Islamic terms without being prompted", "When a student is held accountable in view of others, peers respond with gravity rather than entertainment", "Students demonstrate self-accountability, correcting their own behaviour before the teacher intervenes"]
+              }
+            },
+            "1C4": {
+              "name": "Student Voice Is Heard",
+              "focus": "Are students genuinely invited to think, question, and contribute, or is the lesson a performance by the teacher that students passively receive?",
+              "rubric": {
+                "1": ["Teacher dominates entirely, extended talk with minimal student contribution beyond yes/no responses", "When students attempt to contribute beyond expected responses, they are redirected or cut off", "Students appear to have learned that their thinking is not what is being asked for"],
+                "2": ["Students invited to respond to questions but the invitation is closed, right answer sought, divergent responses corrected without exploration", "Participation is driven by desire to give the teacher what they want", "Student voice is tolerated, not genuinely valued"],
+                "3": ["Teacher makes space for student contribution, some discussion, some open questions", "Student voice is a feature of the lesson rather than its engine", "Teacher's plan determines direction; student thinking is accommodated, not genuinely followed"],
+                "4": ["Students regularly invited to reflect, reason, and question, not just answer", "Teacher responds to student thinking with genuine curiosity", "At least one moment where teacher visibly adjusts course based on what students say"],
+                "5": ["Students drive significant portions of reflection and discussion, teacher facilitates rather than leads", "Students build on each other's contributions without waiting for teacher validation", "In student conversation, students reference specific ideas they raised in class as a normal part of how they learn here"]
+              }
+            },
+            "1C5": {
+              "name": "Safe Space for Questions About Deen",
+              "focus": "Do students feel safe enough to raise honest, difficult, or uncertain questions about faith, or do they mask doubts and comply with expected responses?",
+              "rubric": {
+                "1": ["Students show visible anxiety or reluctance about expressing anything other than correct Islamic responses", "Environment communicates, through teacher reactions or peer culture, that doubt or non-standard questions are unwelcome", "Students may have questions but do not raise them"],
+                "2": ["Questions about deen are tolerated but not actively invited", "If a student raises a difficult question, teacher responds with an answer, not an invitation", "Response closes the inquiry rather than opening it, students learn questions are managed, not explored"],
+                "3": ["Students occasionally ask genuine faith questions and teacher receives them respectfully", "Environment is not hostile but teacher's response remains primarily informational", "Students do not feel the classroom is actively inviting their questions"],
+                "4": ["At least one moment during the observation reveals a student raising a genuine faith question", "Teacher responds with wisdom: doesn't rush to an answer, doesn't shut it down, doesn't make the student feel wrong to ask", "Other students' responses suggest this happens regularly, it is not a one-off"],
+                "5": ["Students raise deep, honest, personal questions about their deen as a normal part of classroom culture", "Students ask identity questions, intellectual challenges, personal struggles without hesitation or embarrassment", "If asked what makes this classroom safe to ask in, students can articulate specific reasons"]
+              }
+            }
+          }
+        },
+        "1D": {
+          "name": "Pastoral Awareness",
+          "description": "Does the teacher notice and respond to the whole student, not just academic performance?",
+          "maxScore": 20,
+          "indicators": {
+            "1D1": {
+              "name": "Awareness of Student Wellbeing",
+              "focus": "Does the teacher notice the whole student? Focus on this individual teacher's murabbi practice, not the school's pastoral care system (Framework 2).",
+              "rubric": {
+                "1": ["Focus is entirely academic, lesson delivery, behaviour management, task completion", "A student who is visibly subdued, distracted, or emotionally struggling receives no acknowledgment", "Pastoral care is not part of how this teacher understands their role"],
+                "2": ["Notices when something seems wrong but delegates immediately without personal follow-up", "The noticing is present; the murabbi response is absent", "No private check-in or personal care shown in the moment of noticing"],
+                "3": ["Some awareness of student wellbeing, a quiet check-in, a brief acknowledgment of difficulty", "Pastoral care is additional to teaching rather than integrated with it", "Responds when the signal is clear but does not proactively reach out"],
+                "4": ["Actively notices changes in student demeanour, a student unusually quiet, one who seems to be carrying something", "Makes brief, private contact: a quiet word, a desk check-in, an invitation after class", "When asked who notices how they're doing beyond grades, students name this teacher"],
+                "5": ["Students proactively bring this teacher their struggles, academic, personal, sometimes spiritual", "At least one interaction reveals prior knowledge of a student's situation being carried forward", "Students describe this teacher as someone who sees them, not just what they produce"]
+              }
+            },
+            "1D2": {
+              "name": "Behaviour as Communication",
+              "focus": "When a student misbehaves, does the teacher's first response ask what is happening for this student, or does it default immediately to consequence?",
+              "rubric": {
+                "1": ["All misbehaviour treated as rule-breaking and managed with immediate consequence", "No inquiry into cause, teacher has no apparent curiosity about why the student is behaving as they are", "Repeat behaviour patterns are managed repeatedly without inquiry"],
+                "2": ["Occasionally asks 'why?' after applying a consequence, but consequence always comes first", "The question feels procedural rather than genuinely caring", "Student's answer does not visibly change what happens next"],
+                "3": ["In at least one instance, teacher pauses before responding, a brief exchange suggesting some curiosity", "But inconsistent across the observation, other incidents are still consequence-first", "Developing the habit of curiosity but has not made it their first instinct"],
+                "4": ["When a student misbehaves, teacher's first visible response is curiosity, a quiet question ('everything okay?', 'what's going on?')", "A moment of private attention before any consequence is applied", "At least one incident clearly demonstrates this: teacher separates the behaviour from the student"],
+                "5": ["Students themselves are visibly self-reflective about behaviour rather than defensive", "Conversation between teacher and student is two-way: student participates in identifying what happened", "Students describe this teacher as someone who always asks what's going on before reacting, and name this as why they trust them"]
+              }
+            },
+            "1D3": {
+              "name": "Connection to Islamic Support Frameworks",
+              "focus": "Does this teacher know and use the school's behaviour/pastoral frameworks, and connect them to Islamic values rather than applying them as purely secular procedures?",
+              "rubric": {
+                "1": ["Unable to name or describe the school's behaviour frameworks (REAL Schools, IMP, or equivalent)", "Approach to behaviour and pastoral care is entirely personal and unconnected to any school-wide system", "No awareness of how the framework relates to Islamic values"],
+                "2": ["Aware the frameworks exist and uses them when required, in a formal incident or when directed", "No proactive engagement; cannot articulate how the framework connects to Islamic values", "Applies procedure but has no Islamic rationale for it"],
+                "3": ["Can describe the school's frameworks and applies them with some consistency", "Application is procedural, follows the steps without connecting to Islamic concepts (tawbah, ihsan, accountability)", "If asked how the framework relates to Islamic values, cannot answer clearly"],
+                "4": ["Fluently uses the school's behaviour frameworks and can clearly articulate their connection to Islamic values", "Understands how restorative consequences reflect tawbah, how root-cause inquiry reflects understanding the nafs", "Applies the framework as an expression of Islamic pastoral care, not just school procedure"],
+                "5": ["Models the integration of Islamic values and professional frameworks so naturally that students absorb both", "In student conversation, students can articulate why they are held to account in Islamic terms", "Framework has become a formation tool, students grow through it, not just comply"]
+              }
+            },
+            "1D4": {
+              "name": "Communication with Parents",
+              "focus": "Does this teacher communicate with parents as partners in Islamic formation, or is communication reactive, deficit-focused, and purely academic? Focus on this teacher's individual practice, not the school-wide strategy (Framework 2).",
+              "rubric": {
+                "1": ["Communication is entirely reactive, parents hear from this teacher only when a problem arises", "Communication is deficit-focused: behaviour incidents, missed work, academic underperformance only", "No proactive outreach of any kind"],
+                "2": ["Some proactive communication exists, end-of-term reports, academic updates, but academic in focus only", "Does not communicate about Islamic formation, character development, or pastoral wellbeing", "Parents are informed about their child as a student, not engaged as tarbiyyah partners"],
+                "3": ["Communicates reasonably regularly and includes some positive messages alongside concerns", "Islamic formation dimension is absent, parents receive academic and pastoral updates but no formation language", "School-home communication is functional but not formative"],
+                "4": ["At least one example shows a message going beyond academic reporting, a comment about character, positive Islamic engagement, or a pastoral concern raised with care", "Teacher connects their communication approach to the idea of school-home formation partnership", "Parents feel kept in the loop about formation, not just grades"],
+                "5": ["Parents describe this teacher as a trusted murabbi figure, someone they'd contact about faith, character, or struggles", "Named by parents specifically as communicating with warmth and genuine care", "Parents feel they are on the same team, working together for the child's formation, not operating in separate spheres"]
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "F2": {
+      "name": "School Ethos & Culture",
+      "centralQuestion": "If a student spends six years in this school, what will they have absorbed about what it means to be Muslim, not from the Islamic Studies timetable, but from the air they breathed, the adults they watched, and the culture they were formed in?",
+      "maxScore": 125,
+      "sections": {
+        "2A": {
+          "name": "Leadership & Vision",
+          "description": "Is the Islamic formation vision clear, owned, and actively driven by leadership?",
+          "maxScore": 25,
+          "indicators": {
+            "2A1": {
+              "name": "Clarity of Islamic Vision",
+              "focus": "Is there a single, clearly articulated Islamic formation vision, and does everyone in the school know it, own it, and act on it?",
+              "rubric": {
+                "1": ["No written or spoken Islamic formation vision exists at school level", "Leadership cannot articulate a coherent answer to 'what are we trying to produce in our graduates?'", "Staff in different departments have no shared language or direction for tarbiyyah"],
+                "2": ["A vision statement exists in a policy document but is largely unknown to staff", "Leadership can recite the vision but cannot explain how it shapes daily decisions", "Ask three staff members: fewer than half give a recognisably similar answer"],
+                "3": ["Leadership can articulate the vision clearly; some staff understand it, others have a vague sense", "Vision shapes some decisions but not others consistently", "Staff are aware of the vision but it has not become their own language"],
+                "4": ["Staff across departments can articulate the tarbiyyah vision in their own words without prompting", "Vision shapes visible decisions, resource allocation, event programming, staff development, behaviour frameworks", "When asked what the school is trying to produce, staff and students give coherent, aligned answers"],
+                "5": ["Students can articulate the school's Islamic formation vision and see it as shaping their own education", "New staff describe being drawn to the school because of its articulated vision", "The vision is self-correcting: staff notice and name when decisions drift from it"]
+              }
+            },
+            "2A2": {
+              "name": "Leadership Models Islamic Character",
+              "focus": "Is Islamic character visible in how leadership actually behaves, in corridor conversations, in difficult meetings, in moments of pressure, or only in formal speeches?",
+              "rubric": {
+                "1": ["Islamic character is not observable in leadership's day-to-day manner, interactions are transactional or terse", "Staff would not describe leadership as a model of Islamic conduct", "Leadership's manner in informal settings is indistinguishable from a secular school leader"],
+                "2": ["Leadership demonstrates Islamic values in formal, public moments but not consistently informally", "Staff are aware of the gap between what leadership says and how it behaves", "Sabr, shura, and rahma are spoken about but not consistently embodied in how decisions are made"],
+                "3": ["Leadership is generally fair and respectful, Islamic character visible in major moments", "Day-to-day interactions are decent but rarely recognisably Islamic in framing or manner", "At least one member of leadership is named by staff as a genuine Islamic character model"],
+                "4": ["Leadership consistently models sabr, adl, shura, and rahma across formal and informal settings", "Staff cite specific examples of leadership embodying Islamic conduct, in how difficult news was shared, how conflicts were handled", "Students and staff see Islamic leadership lived, not just spoken in assemblies"],
+                "5": ["Staff explicitly describe their Islamic formation as influenced by leadership's example", "Leadership's conduct is a reference point in staff culture: 'that's how we do things here' traces back to modelled behaviour", "When leadership makes a mistake, they acknowledge it with tawadu, and this is noticed and described by staff"]
+              }
+            },
+            "2A3": {
+              "name": "Tarbiyyah as a Genuine Strategic Priority",
+              "focus": "Is tarbiyyah resourced, measured, and discussed alongside academic priorities, or is it the first thing dropped when time or money is tight?",
+              "rubric": {
+                "1": ["Tarbiyyah is not mentioned in strategic planning, budget conversations, or performance review", "Academic outcomes dominate all leadership conversations; Islamic formation is treated as automatic", "No one has a specific brief or accountability for tarbiyyah outcomes"],
+                "2": ["Tarbiyyah is mentioned in strategy documents and the principal speaks about it", "No measurable outcomes, budget line, or formal staff time allocated to it", "When tarbiyyah competes with an academic priority, tarbiyyah loses every time"],
+                "3": ["Tarbiyyah has a named lead (e.g. Head of Tarbiyyah) and some allocated time", "It competes with academic priorities for resource and does not always win", "Progress is reviewed occasionally but not with the same rigour as academic KPIs"],
+                "4": ["Tarbiyyah is budgeted, timetabled, tracked, and discussed at leadership level", "At least one senior leader is accountable specifically for tarbiyyah outcomes", "When trade-offs arise, tarbiyyah is not automatically deprioritised, the conversation happens explicitly"],
+                "5": ["Staff experience tarbiyyah as the lens through which all school decisions are made, including academic ones", "The language of formation runs through hiring decisions, curriculum design, event planning, parent communications", "Tarbiyyah outcomes are reviewed with the same seriousness as academic results"]
+              }
+            },
+            "2A4": {
+              "name": "Coherence of Programmes",
+              "focus": "Can a random staff member explain how 5D Thinking, REAL Schools, the Murabbi Project, and Islamic Studies connect into a single formation vision? If not, that is your primary finding.",
+              "rubric": {
+                "1": ["Staff cannot name all the programmes running in the school", "No one can articulate how 5D Thinking, REAL Schools, and the Murabbi Project relate to each other", "Each programme is managed separately with no shared framework"],
+                "2": ["Staff are aware multiple programmes exist but see them as separate initiatives", "Programme leads can describe their own strand but not how it connects to others", "Students experience the programmes as disconnected, 'that's different from this'"],
+                "3": ["Leadership can articulate the intended relationship between programmes", "Some staff understand the connections; many do not", "In practice, programmes operate semi-independently, overlap is not managed and duplication occurs"],
+                "4": ["Most staff can articulate how 5D, REAL Schools, Murabbi, and Islamic Studies form a coherent whole", "There is a shared map or framework that shows how programmes connect, and staff have been trained on it", "When a new initiative is proposed, leadership asks 'where does this fit?' rather than adding it alongside"],
+                "5": ["Students experience the school's programmes as a single, seamless formation journey rather than separate initiatives", "A student asked about their Islamic education can describe how different elements connect, they have the map, not just the experiences", "Staff from different programme areas collaborate naturally and plan across each other's strands"]
+              }
+            },
+            "2A5": {
+              "name": "Scholarly / Spiritual Guidance",
+              "focus": "Is there a trusted scholarly presence guiding the school's tarbiyyah direction, or are faith decisions made by leadership without scholarly grounding?",
+              "rubric": {
+                "1": ["No guiding scholarly figure involved in tarbiyyah decisions, curriculum design, or spiritual culture", "Faith-related questions are answered by management instinct, not Islamic knowledge", "The absence of a Head of Faith is felt, no replacement has been found"],
+                "2": ["Ad hoc scholarly input sought occasionally, a speaker brought in, a question sent to an external scholar", "No ongoing relationship; scholarly guidance is reactive, not formative", "Staff do not know who to consult when facing a complex faith-related pastoral or curriculum question"],
+                "3": ["An external scholarly figure contributes in a specific, bounded way", "Scholarly input shapes one area of the school's work but not the whole", "Leadership would benefit from but does not have a trusted scholar who knows the school's context deeply"],
+                "4": ["A trusted scholarly figure provides ongoing, contextualised guidance to leadership, not just content but direction", "Staff know who the scholarly anchor is and can access that guidance through defined channels", "Faith decisions, curriculum content, handling student doubt, tarbiyyah approach, are grounded in scholarly input"],
+                "5": ["The scholarly presence is felt in school culture, staff and students reference scholarly guidance as part of everyday decision-making", "Scholars engage not just with leadership but with teachers and students directly, building a culture of 'ilm", "Staff describe the scholarly relationship as formative for their own Islamic development"]
+              }
+            }
+          }
+        },
+        "2B": {
+          "name": "School Environment & Physical Culture",
+          "description": "Does walking into this school feel Islamic, not in a decorative sense, but in terms of what is felt, heard, and seen?",
+          "maxScore": 25,
+          "indicators": {
+            "2B1": {
+              "name": "Visual Islamic Presence",
+              "focus": "Does the physical environment communicate an active Islamic identity, connected to formation, not just decoration? Assess corridors, entrances, and common spaces.",
+              "rubric": {
+                "1": ["Corridors and shared spaces communicate no Islamic identity, generic motivational posters, academic displays", "A visitor would not know this is an Islamic school from the physical environment alone", "Islamic content is absent or so minimal it has no presence"],
+                "2": ["Islamic content exists but is purely decorative, Arabic calligraphy, stock Quranic ayaat posters", "Displays are old, faded, or clearly unchanged across the year", "Students walk past Islamic content without engaging with it, it has become invisible"],
+                "3": ["Islamic content is visible and present throughout, ayaat, hadith, character reminders", "Some displays are connected to school themes but many are generic", "Content is not actively integrated into school life, teachers don't reference displays, students don't contribute"],
+                "4": ["The physical environment actively communicates this school's Islamic formation journey", "Displays are connected to current learning, recently updated, and in some cases created with student input", "A visitor can read the walls and understand something about what this community is working on spiritually"],
+                "5": ["Students engage with and contribute to the Islamic environment, displays include their own reflections and creations", "Visitors consistently remark on the distinct character of the space without prompting", "The visual environment reflects the school's living culture, not a static aspiration pinned to walls"]
+              }
+            },
+            "2B2": {
+              "name": "Sound and Rhythm of the School Day",
+              "focus": "Does the Islamic rhythm of the day feel real, or does it feel like a procedural interruption to the academic schedule?",
+              "rubric": {
+                "1": ["No Islamic rhythm distinguishes this school day from a secular one", "The adhan, salah, and adhkar are absent from shared school experience", "Transitions and breaks have no Islamic framing"],
+                "2": ["Salah and adhkar exist on the timetable but are treated as administrative interruptions", "Students move to salah as they move to any lesson, without preparation, presence, or spiritual weight", "The rhythm exists on paper; it is not felt"],
+                "3": ["Islamic rhythm is present and consistent, the adhan is sounded, salah happens at its time", "The rhythm is maintained but not cultivated, some staff treat it with reverence, others manage it procedurally", "Students experience the rhythm as a schedule feature, not a spiritual anchor"],
+                "4": ["The Islamic rhythm of the school day is felt, transitions include dhikr, salah is treated as a sacred pause", "Staff model attentiveness to the rhythm, they stop what they're doing, they prepare", "Students experience the rhythm as meaningful anchors in the day, not as interruptions"],
+                "5": ["Students protect the rhythm themselves, reminding each other, settling without being told, staying for voluntary dhikr after salah", "The rhythm has become a marker of identity: 'this is how we do things here'", "A visitor arriving during a salah transition would experience something unmistakably distinct from a secular school"]
+              }
+            },
+            "2B3": {
+              "name": "Salah Culture",
+              "focus": "The question is not whether salah happens, it is whether salah is treated as formation or administration.",
+              "rubric": {
+                "1": ["Salah is not a meaningful part of school practice, absent, treated as optional, or so poorly managed it carries no spiritual weight", "Staff do not pray with students", "The masjid or prayer space is a room, not a sacred environment"],
+                "2": ["Salah is scheduled and happens, but as a tick, not a practice", "No attention to quality, concentration, or meaning", "Students file in and out efficiently; spiritual preparation and reflection are absent"],
+                "3": ["Salah happens at its time with reasonable attendance and some sense of order", "Some staff pray alongside students and guide with brief reminders about presence", "Inconsistent across year groups, some classes approach salah with reverence; others do not"],
+                "4": ["Students are guided in concentration (khushu); teachers pray alongside students as a norm", "Brief pre-salah reminder or du'a is a consistent practice; Hamdala follows", "Reflection on salah, its meaning, its connection to daily life, is part of tarbiyyah conversations"],
+                "5": ["Students are observed in voluntary dhikr or supplication around salah time without being prompted", "Salah has become personal practice, not just school practice, students describe it as the most grounding part of their day", "Salah culture is maintained even when leadership is absent, students lead, students remind each other"]
+              }
+            },
+            "2B4": {
+              "name": "Language and Communication",
+              "focus": "Does the school's official and informal communication use Islamic language meaningfully, or is it formulaic (Bismillah on every email but secular in substance)?",
+              "rubric": {
+                "1": ["All school communication, newsletters, emails, announcements, signage, is entirely secular in framing", "No Islamic language present in how the school speaks to itself and to its community", "Islamic phrases, when present, are absent from any substantive communication"],
+                "2": ["Islamic phrases appear formulaically (Assalamualaikum, Inshallah, Alhamdulillah) but the substance of communication is entirely secular", "Islamic language is performative rather than reflective of genuine Islamic culture", "Formal communications are indistinguishable from a non-Islamic school if you remove the opening salaam"],
+                "3": ["Islamic language is present and generally meaningful in formal communications", "Some communications are genuinely Islamic in framing, connecting school events to Islamic purpose", "Informal communication in staffroom and corridors uses Islamic language inconsistently"],
+                "4": ["Islamic language permeates school communications naturally and meaningfully, expressing who this community is", "Formal communications connect school life to Islamic purpose: achievements framed as amanah, difficulties as tests, community life as ummah", "Islamic language in informal settings is consistent and unselfconscious across most staff"],
+                "5": ["Students adopt Islamic language naturally in their own communication, with peers, in schoolwork, in formal settings", "The language of the school has become the language of its students, it reflects genuine internalisation", "Visitors note the distinctiveness of how this community speaks to and about itself"]
+              }
+            },
+            "2B5": {
+              "name": "Feel of Transitions and Informal Time",
+              "focus": "Culture lives in the spaces between structured programmes, the corridors, the lunch hall, the sports field. What do these spaces tell you about what is actually being formed?",
+              "rubric": {
+                "1": ["Corridors and breaks are indistinguishable from a non-Islamic school, peer dynamics, language, and behaviour reflect no Islamic formation", "Social hierarchies, exclusion, and unkind peer dynamics are visible and unaddressed", "Islamic identity is invisible in informal spaces"],
+                "2": ["Some positive norms exist in informal settings but have no Islamic framing", "Students are generally decent, but this could be any well-managed school", "Islamic identity is not visible in how students carry themselves or relate to each other in unstructured time"],
+                "3": ["Some Islamic norms are visible in informal settings, salam greetings, students helping each other", "Inconsistent across year groups and locations", "Staff presence in informal spaces is variable, some engage warmly, others supervise at distance"],
+                "4": ["Students' behaviour in informal settings reflects Islamic formation, adab, ukhuwwah, and respect visible without enforcement", "Students greet each other with salam naturally; helping behaviour is common; unkindness is rare and noticed", "Staff move through informal spaces with warmth and purpose, their presence is relational, not just supervisory"],
+                "5": ["Visitors comment on the distinctive informal culture without prompting", "Students who transfer from other schools describe the informal culture as noticeably different", "Islamic identity is visible in how students carry themselves and relate, even when no staff are watching"]
+              }
+            }
+          }
+        },
+        "2C": {
+          "name": "Pastoral Care & Behaviour Framework",
+          "description": "Does the school's approach to student wellbeing and behaviour reflect Islamic values, or is it secular best practice with Islamic language added?",
+          "maxScore": 25,
+          "indicators": {
+            "2C1": {
+              "name": "Islamic Overlay on REAL Schools Framework",
+              "focus": "Does the school's behaviour management approach carry an Islamic soul, or is it a secular framework with Islamic words retrofitted?",
+              "rubric": {
+                "1": ["Behaviour management has no Islamic framing, sanctions and consequences operate in a purely secular register", "Concepts like tawbah, ihsan, and responsibility before Allah are entirely absent", "Staff apply consequences as rule enforcement; Islamic dimension does not exist in practice"],
+                "2": ["Staff use the behaviour system but with no connection to Islamic concepts of accountability", "Islamic language occasionally used in pastoral conversations, 'Allah is watching' as a warning, but feels retrofitted", "Staff cannot articulate how the behaviour framework relates to Islamic values"],
+                "3": ["Framework is applied consistently by most staff", "Some staff connect it to Islamic values naturally; most apply it procedurally", "Training has not systematically established the Islamic rationale for the restorative approach"],
+                "4": ["Staff understand the framework as an Islamic framework, restorative consequences understood as reflecting tawbah and ihsan", "In pastoral conversations, staff connect consequences to Islamic responsibility naturally, not formulaically", "Training has established the Islamic rationale, staff can articulate why this approach aligns with Islamic values"],
+                "5": ["Students articulate consequences in Islamic terms, accountability before Allah is a lived reality, not a phrase", "When asked why they are held to account, students connect it to their identity as Muslims, not just school rules", "The framework is a formation tool, students grow through it, not just comply with it"]
+              }
+            },
+            "2C2": {
+              "name": "Root-Cause Approach to Behaviour",
+              "focus": "Does the school treat misbehaviour as communication, something to understand, or purely as a rule violation to be managed?",
+              "rubric": {
+                "1": ["Behaviour issues managed only as rule violations, sanction applied, record made, case closed", "No staff member asks what might be happening for the student behind the presenting behaviour", "Repeat behaviour patterns are managed repeatedly without inquiry into cause"],
+                "2": ["Surface-level curiosity in some pastoral conversations but not systemic", "Individual staff may ask 'what's going on?' but this is personal style, not school culture", "Behaviour data tracked but not analysed for patterns or root causes at a school level"],
+                "3": ["Some staff consistently look for root causes; others do not", "Pastoral care is available but uneven, quality of response depends on which teacher a student happens to go to", "The school is aware of the gap but has not systematically shifted its approach"],
+                "4": ["Across the school, behaviour is understood as communication, first response is curiosity, then consequence", "Behaviour data is used to identify patterns and trigger pastoral intervention before issues escalate", "Staff have language and training for root-cause inquiry: 'What might this behaviour be telling us?'"],
+                "5": ["Students themselves articulate the root causes of their behaviour, self-awareness is a formation outcome", "When misbehaving, students are not defensive, they have been formed to understand themselves", "The school can point to specific cases where root-cause pastoral care changed a student's trajectory"]
+              }
+            },
+            "2C3": {
+              "name": "Student Support and Mentoring (Murabbi Culture)",
+              "focus": "Is there a genuine murabbi culture, multiple adults who see themselves as formative mentors, or is student support concentrated in one person and therefore fragile?",
+              "rubric": {
+                "1": ["Student support is crisis-driven and reactive, pastoral care only triggered when a serious problem emerges", "No adult in the school describes their role in terms of long-term formation mentorship", "Students do not know who to go to with a faith or personal struggle"],
+                "2": ["Some pastoral care exists but concentrated in one person or department", "Most teachers see their role as subject delivery; pastoral care is someone else's job", "Students with struggles know to go to one designated person, the culture is not distributed"],
+                "3": ["Some teachers embrace a murabbi identity individually but it is not a school-wide expectation", "Some students have an adult they trust; many do not", "The Murabbi Project exists outwardly but the internal murabbi culture among staff is underdeveloped"],
+                "4": ["A genuine murabbi culture exists, multiple staff across departments see themselves as formative mentors", "Students know who their murabbi is and are known by more than one adult in the school", "The culture is embedded in role expectations, not just encouraged but expected and supported"],
+                "5": ["Students can name their murabbi, seek them out proactively, and describe the impact of the relationship on their growth", "The murabbi culture is visible in the rhythm of the day, check-ins, walking to salah, sitting with students at lunch", "New staff are formed into the murabbi culture, it is part of how this school understands itself"]
+              }
+            },
+            "2C4": {
+              "name": "Wellbeing and Mental Health Through an Islamic Lens",
+              "focus": "Is student wellbeing addressed through an integrated Islamic and professional framework, or is mental health support entirely secular, with Islam absent from the conversation?",
+              "rubric": {
+                "1": ["Wellbeing support is entirely secular, counselling and pastoral care draw on no Islamic framework", "Islamic spiritual practices (dhikr, tawakkul, muhasabah) are never referenced in wellbeing contexts", "Students experiencing spiritual struggle have no Islamic language or support structure for it"],
+                "2": ["Islamic language occasionally appears in pastoral contexts, 'make du'a', 'have tawakkul', but not as a systematic framework", "No staff member equipped to integrate Islamic spiritual tools with professional wellbeing support", "Students who present with spiritual doubt or crisis are referred as if it were a generic mental health issue"],
+                "3": ["Some staff can integrate Islamic and professional wellbeing frameworks, particularly those with Islamic Studies backgrounds", "This is personal competence, not institutional design", "The school is aware of the gap but has not yet built a systematic integrated approach"],
+                "4": ["Student wellbeing is addressed through an integrated Islamic and professional framework, spiritual and emotional health understood as connected", "Staff equipped with tools drawing on both Islamic tradition (muhasabah, tawakkul, sabr) and professional wellbeing frameworks", "Spiritual crises are treated as real pastoral needs with appropriate Islamic support, not just mental health referrals"],
+                "5": ["Students understand their emotional and spiritual wellbeing as inseparable, Islamic self-care practices are part of their toolkit", "Students describe using muhasabah, du'a, and the Quran as genuine coping tools, not just things they are told to do", "The school is a safe place for students to name spiritual doubt, and know they will receive Islamic pastoral care"]
+              }
+            },
+            "2C5": {
+              "name": "Inclusion and Dignity",
+              "focus": "Does the school community embody an active culture of inclusion grounded in Islamic values, or is safety achieved through management rather than genuine brotherhood and sisterhood?",
+              "rubric": {
+                "1": ["Visible pockets of exclusion, bullying, or marginalisation present and not being addressed", "Certain students, by year group, ability, or social profile, are clearly outsiders in the culture", "Islamic values of brotherhood and sisterhood are referenced but not operative in peer dynamics"],
+                "2": ["School is generally safe but Islamic brotherhood/sisterhood culture is absent", "Exclusion is managed when it becomes a problem but not actively countered through formation", "Peer dynamics reflect social hierarchies that are unchallenged by the school's Islamic values"],
+                "3": ["School is generally safe and positive", "Islamic brotherhood/sisterhood is spoken about and valued but not systematically cultivated", "Some year groups have strong peer culture; others have social dynamics that undermine inclusion"],
+                "4": ["The school community embodies an active culture of inclusion grounded in Islamic values, every student belongs to the ummah is a lived reality", "Peer inclusion is actively cultivated through seating, grouping, student leadership, and pastoral care", "Exclusion is named and addressed in Islamic terms, as a violation of ukhuwwah, not just as a behaviour issue"],
+                "5": ["Students actively include and advocate for each other as an expression of their Islamic identity, without being prompted", "Students who are socially vulnerable are protected by the peer culture, not just by staff", "When exclusion occurs, other students name it and address it, inclusion has become a student-owned value"]
+              }
+            }
+          }
+        },
+        "2D": {
+          "name": "Staff Formation & Culture",
+          "description": "Are the staff themselves on a journey of Islamic formation, or are they expected to form students in a faith they are not actively developing in themselves?",
+          "maxScore": 25,
+          "indicators": {
+            "2D1": {
+              "name": "Staff Islamic Formation",
+              "focus": "Are staff growing in their own Islamic formation as part of working at this school, or is formation expected to happen at home, on their own time?",
+              "rubric": {
+                "1": ["No investment in staff's own Islamic development, no ta'leem, no Islamic CPD, no spiritual dimension to staff life", "Staff are expected to deliver Islamic content without support for their own formation", "Staff Islamic formation is treated as a private matter unrelated to professional life"],
+                "2": ["Occasional Islamic input for staff, a visiting scholar once a year, a Ramadan programme, but ad hoc", "Staff value the occasions but cannot describe a programme or journey of formation", "No staff member feels accountable for their own Islamic growth as part of their professional role"],
+                "3": ["Some Islamic formation for staff exists, regular ta'leem, Islamic Studies input, or reflection sessions", "Valuable but not connected to a coherent framework, staff don't experience it as a journey", "Take-up is variable, some staff are engaged; others feel it is not relevant to them"],
+                "4": ["Staff have regular, meaningful Islamic formation opportunities clearly part of working at this school", "Formation is connected to the school's tarbiyyah mission, staff understand their development as inseparable from what they are trying to produce in students", "Engagement is high and the programme has a coherent shape, it is building something, not just offering isolated sessions"],
+                "5": ["Staff describe their Islamic formation as one of the most valued aspects of working at this school", "Formation is visible in staff practice, the ta'leem is not just attended, it is absorbed and referenced", "Senior staff can articulate how their Islamic formation has shaped their teaching, pastoral care, or leadership"]
+              }
+            },
+            "2D2": {
+              "name": "Staff as Murabbis",
+              "focus": "Do all staff, not just Islamic Studies teachers, see themselves as formative agents in students' Islamic development?",
+              "rubric": {
+                "1": ["Staff see their role purely as subject delivery", "The murabbi identity is associated only with Islamic Studies teachers, or with no one", "A Maths teacher asked 'what is your role in a student's tarbiyyah?' would not have a meaningful answer"],
+                "2": ["Some staff embrace a murabbi identity individually, but this is personal character, not a school-wide expectation", "No staff role description, appraisal, or induction includes tarbiyyah as a professional responsibility", "Most staff see formation as someone else's job"],
+                "3": ["The school articulates the expectation that all staff are murabbis, it is named in culture and communication", "In practice, a minority of staff embody it; the majority are still primarily subject-focused", "The gap between aspiration and reality is known but not yet closed through training or accountability"],
+                "4": ["School culture expects and supports every staff member to be a murabbi, embedded in role descriptions and appraisal conversations", "Most staff can articulate how their subject or role contributes to Islamic formation", "Formation conversations happen across departments, not just in Islamic Studies"],
+                "5": ["Students experience all staff as murabbis, the identity is consistent across every adult in the school", "A student asked to name an adult outside Islamic Studies who has shaped their Islamic character names one without hesitation", "Staff hold each other to the murabbi identity and celebrate examples of it"]
+              }
+            },
+            "2D3": {
+              "name": "Teacher Knowledge of the Behaviour Framework",
+              "focus": "Can all staff confidently apply the school's behaviour frameworks, and connect them to Islamic values, or is implementation variable and poorly understood?",
+              "rubric": {
+                "1": ["Many staff cannot name or describe the school's behaviour frameworks (IMP, REAL Schools, or equivalent)", "Application is entirely personal, each teacher manages behaviour according to their own preference", "Students experience very different standards in different classrooms and are aware of this"],
+                "2": ["Staff know the frameworks in theory but application is inconsistent and unconfident", "Many staff default to their own approach when the formal framework feels difficult", "The Islamic rationale for the framework is not known or articulated by most staff"],
+                "3": ["Most staff know and apply the framework reasonably well", "Inconsistency remains, particularly between experienced and newer staff, and between departments", "The Islamic rationale for the framework is known by some, not most"],
+                "4": ["All staff confidently apply the IMP/REAL/consequence frameworks", "Staff can connect the framework to Islamic values of fairness, restoration, and growth, not just as school procedure", "Inconsistency is minimal, students experience a consistent approach across their school day"],
+                "5": ["Staff adapt the frameworks fluidly to complex situations, they are tools, not scripts", "In conversation with any staff member, the Islamic rationale for the approach is articulated naturally", "Students notice and value the consistency, they describe the school's approach to behaviour as fair and trust-based"]
+              }
+            },
+            "2D4": {
+              "name": "Collaborative Tarbiyyah Culture Among Staff",
+              "focus": "Do staff share a language and approach to Islamic formation, and plan across each other's areas, or does each teacher operate in isolation?",
+              "rubric": {
+                "1": ["Staff operate in silos, no shared language, no cross-departmental conversation about formation", "Islamic Studies teachers are the only ones who discuss tarbiyyah; other departments are entirely disconnected", "No forum, meeting structure, or culture that brings staff together around formation"],
+                "2": ["Limited cross-departmental conversation about tarbiyyah, typically only when a student issue triggers it", "No shared language across departments; 'tarbiyyah' and '5D Thinking' are known in some areas, unknown in others", "Formation planning is done department by department with no coordination"],
+                "3": ["Some cross-departmental tarbiyyah conversation exists, typically driven by one or two motivated staff", "Shared language is developing but not consistent", "Some collaborative planning happens but is not systematic or regular"],
+                "4": ["Staff across all departments share a language and approach to Islamic formation, they plan together and hold each other accountable", "Cross-departmental tarbiyyah conversations are structured into the school year, not just reactive", "A History teacher and an Islamic Studies teacher can describe how they coordinate on a shared formation goal"],
+                "5": ["Staff culture is itself a model of the ummah, collaborative, mutually accountable, and visibly purposeful", "Collaboration is visible to students: they experience the school's approach as unified", "Staff describe the collaborative culture as one of the most distinctive and motivating features of working here"]
+              }
+            },
+            "2D5": {
+              "name": "Staff Wellbeing and Sense of Purpose",
+              "focus": "Do staff feel supported, valued, and part of a meaningful mission, or are they carrying the tarbiyyah agenda as an additional burden on top of an already heavy workload?",
+              "rubric": {
+                "1": ["Low morale, high turnover, or staff who explicitly describe the tarbiyyah agenda as an additional burden", "Staff feel the Islamic formation expectations are unrealistic given their workload", "No investment in staff wellbeing beyond statutory requirements"],
+                "2": ["Staff are generally committed but show signs of change management fatigue, multiple initiatives, little sequencing, limited capacity", "Some staff feel overwhelmed by the volume of change (5D, REAL Schools, Murabbi, Turkey training) running simultaneously", "Good intentions but poor capacity management, staff are burning out from doing too much"],
+                "3": ["Staff are broadly positive about the school's mission but workload is a real concern", "The tarbiyyah agenda is valued but not yet sequenced in a way that feels manageable", "Leadership is aware of the tension and is working to address it"],
+                "4": ["Staff feel genuinely supported, valued, and part of a meaningful mission", "The school's Islamic formation agenda energises staff rather than depleting them, it is the reason they are here", "Workload is managed with awareness of formation fatigue, initiatives are sequenced, not piled"],
+                "5": ["Staff actively advocate for and recruit others to the school's mission", "Purpose is a driving force, not a slogan, staff describe this school as a contribution to the ummah, and mean it", "Staff retention is high; departures are felt as genuine losses to the community"]
+              }
+            }
+          }
+        },
+        "2E": {
+          "name": "Parent & Community Engagement",
+          "description": "Does the school's Islamic formation reach beyond the school gate, and do parents see themselves as partners in this work?",
+          "maxScore": 25,
+          "indicators": {
+            "2E1": {
+              "name": "Parent Understanding of the School's Islamic Vision",
+              "focus": "Do parents understand what the school is trying to do in their child's Islamic formation, or did they choose the school for vague Islamic values and have no active engagement with its vision?",
+              "rubric": {
+                "1": ["Parents have no awareness of the school's tarbiyyah approach beyond 'it's an Islamic school'", "The school communicates with parents about events and academics but never about Islamic formation vision", "Parents are customers of an Islamic education service, not partners in a formation mission"],
+                "2": ["Parents chose the school for Islamic values and have a general sense of its ethos", "They are not engaged with the specific vision, its components, or their role within it", "Most parents could not name the school's programmes (5D, Murabbi, REAL Schools) or explain what they are"],
+                "3": ["Some parents are engaged with the school's Islamic formation vision, particularly those who attend events", "The majority see the school as a service provider rather than a community they are part of", "Communication about Islamic formation happens but is not consistent or widely received"],
+                "4": ["Parents are regularly engaged with the school's Islamic formation vision and understand their role in continuing it at home", "Formation-focused parent communication is a regular feature of school life, not just academic reporting", "At a parent event, most attendees can describe what the school is trying to achieve and why"],
+                "5": ["Parents articulate the school's tarbiyyah vision in their own words and actively reinforce it at home", "Parents see themselves as partners in formation, not consumers of education", "Some parents have become advocates for the school's approach in the wider community"]
+              }
+            },
+            "2E2": {
+              "name": "Consistency Between School and Home",
+              "focus": "Is there active effort to align Islamic formation between the school environment and the home, or do students live two different formation lives that never speak to each other?",
+              "rubric": {
+                "1": ["No attempt to align Islamic formation between school and home", "Parents receive academic communications; nothing extends the school's tarbiyyah approach into family life", "Students experience school and home as entirely separate with no shared formation language"],
+                "2": ["School communicates with parents about behaviour but not about Islamic formation specifically", "No structured effort to help parents understand the school's approach so they can reinforce it", "The Murabbi Project exists outwardly but has not systematically penetrated family life"],
+                "3": ["Some connection between school and home, parents who attend events understand the school's approach better", "No systematic mechanism for sharing formation language, tools, or expectations with all parents", "Quality of school-home alignment depends on whether individual parents choose to engage"],
+                "4": ["The school actively supports parents in creating an Islamic home environment consistent with the school's approach", "Formation language is shared with parents, they receive the same vocabulary and frameworks their children are using", "The Murabbi Project reaches into family life, parents report changing their approach at home as a result"],
+                "5": ["Parents describe the school's home-school formation work as transformative for their family, not just their child", "Home and school are genuinely aligned: language, practices, and values are continuous across contexts", "Students describe their family and school as reinforcing each other, formation is holistic, not compartmentalised"]
+              }
+            },
+            "2E3": {
+              "name": "Parent Education and Empowerment",
+              "focus": "Does the school equip parents as formative agents, not just inform them about school events? Assess actual reach and impact of the Murabbi Project, not just its existence.",
+              "rubric": {
+                "1": ["No parent Islamic formation programmes or community engagement", "Parents are invited to open evenings and sports days, nothing equips them for their role in tarbiyyah", "The Murabbi Project has not reached into parent formation"],
+                "2": ["Occasional parent events exist (a talk, a Ramadan gathering) but no coherent formation programme", "Events are appreciated but attendance is variable and impact is not measured or followed up", "Content is informational, parents leave knowing more, not necessarily doing more differently"],
+                "3": ["The Murabbi Project provides some structured parent engagement", "Reach is limited, the same parents attend repeatedly; the majority are not engaged", "Content is informational rather than formative"],
+                "4": ["Regular, well-attended parent seminars on Islamic parenting and tarbiyyah, parents feel equipped and supported, not just informed", "The school tracks engagement and actively pursues harder-to-reach parents", "After a parent seminar, parents report specific changes in how they approach faith formation at home"],
+                "5": ["Parents have become ambassadors and facilitators, some co-delivering or contributing to parent formation programmes", "The parent community itself is a formation community, parents support each other in tarbiyyah", "Strong parent formation visibly amplifies student formation, the link is observable"]
+              }
+            },
+            "2E4": {
+              "name": "Community Voices in School Life",
+              "focus": "Is the school embedded in the wider Muslim community, drawing on alumni, scholars, and family wisdom, or is it an island that operates in isolation?",
+              "rubric": {
+                "1": ["The community is not involved in school values, culture, or programming", "No alumni engagement, no community scholars, no family voices in school culture", "The school is experienced as a professional institution that delivers education to the community, not as a community institution"],
+                "2": ["Community is occasionally invited to events, a speaker, a fundraiser, but has no voice in school culture", "Alumni are not engaged; their formation outcomes are not tracked or drawn on", "Community figures know the school exists but do not feel connected to its mission"],
+                "3": ["Some community involvement exists, community figures occasionally contribute, alumni are sometimes invited back", "Involvement is event-based rather than embedded", "The school would like to be a community hub but has not yet built the structures to achieve this"],
+                "4": ["Community figures, alumni, and parents are active contributors to the school's tarbiyyah culture", "Alumni come back and speak to students about how their formation at school shaped their life", "The school is experienced as a hub by at least part of the community, people associate it with Islamic formation, not just education"],
+                "5": ["The school is experienced as a community institution, alumni, scholars, and families feel genuine ownership of its mission", "Community wisdom actively shapes the school's approach through genuine involvement, not just consultation", "The school's impact is felt beyond its gates: community members credit it with contributing to the Islamic formation of the neighbourhood"]
+              }
+            },
+            "2E5": {
+              "name": "School-Parent Relationship Quality",
+              "focus": "Is the school-parent relationship warm, collaborative, and trust-based, or transactional, reactive, and deficit-focused?",
+              "rubric": {
+                "1": ["School-parent relationship is reactive and deficit-focused, parents hear from the school mainly when there is a problem", "Parents feel managed, not partnered; the relationship is formal and distant", "No infrastructure for warm, ongoing communication about formation"],
+                "2": ["Regular communication exists but it is transactional and academic, newsletters, reports, grade portals", "The relationship is cordial but surface-level; communication is one-directional: school to parent", "Parents don't feel they know the school and the school doesn't know its families"],
+                "3": ["Some warmth exists in the school-parent relationship, parents who engage feel known", "But engagement is opt-in; the school has not created structures that draw all parents in", "Quality of the relationship depends heavily on individual staff members' personalities"],
+                "4": ["School-parent relationship is warm, collaborative, and built on mutual trust, parents feel seen and heard, not managed", "Multiple structured touchpoints throughout the year allow for genuine conversation, not just parents' evenings", "Parents feel able to raise concerns without fear and to celebrate without formality"],
+                "5": ["Parents describe their relationship with the school as one of the most meaningful partnerships in their child's upbringing", "Parents and staff know each other, not just as roles but as people", "The school-parent relationship is itself a formation relationship: parents grow in their understanding of tarbiyyah through connection with the school"]
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "F3": {
+      "name": "The Curriculum",
+      "centralQuestion": "Is the Islamic curriculum producing students who know Islam, or students who are becoming Muslim? There is a profound difference between a student who can answer exam questions about Aqeedah and a student whose certainty in Allah shapes how they live.",
+      "maxScore": 100,
+      "sections": {
+        "3A": {
+          "name": "Islamic Studies, Adab & Quran - Coherence & Quality",
+          "description": "Is the dedicated Islamic curriculum purposeful, well-sequenced, and formation-oriented?",
+          "maxScore": 25,
+          "indicators": {
+            "3A1": {
+              "name": "Coherence Across Year Groups",
+              "focus": "Is there a clear, sequenced Islamic knowledge framework that students progress through, or do topics repeat randomly and gaps appear between year groups?",
+              "rubric": {
+                "1": ["No sequenced Islamic curriculum, topics chosen by individual teachers based on preference or habit", "Significant repetition across year groups: students cover the same Aqeedah basics in Years 7, 9, and 11", "Significant gaps: important areas (fiqh of contemporary issues, eschatology, Islamic ethics) are never covered"],
+                "2": ["Some sequencing exists informally, teachers are aware of what was covered in previous years, but not documented", "Curriculum coherence depends on individual teachers' knowledge of each other's content", "When a teacher leaves, the sequencing often collapses"],
+                "3": ["A written scheme of work exists across year groups; some sequencing is apparent", "Not consistently applied, individual teachers supplement, replace, or reorder content based on personal preferences", "Students may have significant repetition in some areas and gaps in others depending on their class"],
+                "4": ["There is a clear, coherent Islamic knowledge framework sequenced across all year levels", "A Year 10 Islamic Studies lesson visibly assumes and extends Year 9 content", "Teachers can explain how their year group fits into the whole; students understand their learning journey"],
+                "5": ["Students articulate their learning journey, they know where they have come from and where they are going in their Islamic education", "The curriculum is treated as a living document: reviewed, updated, and improved based on outcomes", "Students experience Islamic education as a building journey, not a series of standalone lessons"]
+              }
+            },
+            "3A2": {
+              "name": "Formation vs Information",
+              "focus": "Are Islamic Studies lessons primarily content delivery, or do they use knowledge as a vehicle for formation? The question is not whether information is taught but whether it is expected to change the student.",
+              "rubric": {
+                "1": ["Islamic Studies lessons are entirely information delivery, content transmitted, comprehension checked, lesson ends", "No moment of reflection, application, or personal connection is designed into lessons", "Students could pass a knowledge test and be entirely unchanged by it"],
+                "2": ["Brief reflection moments exist, 'what does this mean for us?', but incidental and underdeveloped", "Formation intent exists in teachers' minds but is not designed into lesson structure", "Reflection is a token addition at the end of a content-heavy lesson"],
+                "3": ["Some lessons use a structured reflection or application component", "Quality is inconsistent, some teachers create genuine formation moments; others deliver content with a token reflection", "The Learn - Reflect - React framework is used by some teachers but not embedded school-wide"],
+                "4": ["Lessons consistently use a structured approach, students are regularly asked how knowledge applies to their lives", "Formation moments are designed, not improvised, lesson plans include application and reflection as core components", "A lesson observer can see clear formation intent in lesson design, not just delivery"],
+                "5": ["Students demonstrate formation outcomes in behaviour and choices outside of Islamic Studies, knowledge has become character", "When asked about an Islamic Studies lesson, students describe what it made them decide, not just what they learned", "The school can point to observable student formation outcomes that trace back to specific curriculum choices"]
+              }
+            },
+            "3A3": {
+              "name": "Adab Programme Quality and Use",
+              "focus": "Is the Adab programme a meaningful formation tool, or is it treated as a filler by teachers and students alike?",
+              "rubric": {
+                "1": ["No functioning Adab programme, or it exists on the timetable but has no meaningful content or delivery", "Teachers and students treat Adab classes as a non-lesson: phones out, admin done, no real learning", "No one, including leadership, can describe what the Adab programme is trying to achieve"],
+                "2": ["Adab classes exist and are attended but content is not well-designed for formation", "Topics are generic ('be respectful', 'have good manners') without depth, progression, or student engagement", "Teachers are not equipped to deliver Adab meaningfully, classes feel like pastoral time rather than formation"],
+                "3": ["Adab classes have genuine content, Islamic character topics, reflection activities, group discussion", "Some teachers deliver it well; others struggle or improvise", "Students generally cooperate but do not experience Adab as significant in their formation journey, no clear progression across year groups"],
+                "4": ["Adab classes are a meaningful part of student formation, content is intentional, discussions are real, students engage genuinely", "There is a coherent scope and sequence, what is covered in Year 7 is different from and builds on what comes later", "Students reference Adab class discussions in other settings, it reaches beyond the timetable slot"],
+                "5": ["Students reference Adab class discussions months later as things that genuinely shaped their thinking", "The Adab programme has visible formation impact: students use the language and concepts from Adab in everyday conversation", "Teachers delivering Adab feel equipped and confident, the programme is a professional asset, not an awkward addition"]
+              }
+            },
+            "3A4": {
+              "name": "Quran Programme - Depth Beyond Recitation",
+              "focus": "Is the Quran programme producing students who have a living, reflective relationship with the Quran, or students who can recite but have no engagement with meaning?",
+              "rubric": {
+                "1": ["Quran classes focus entirely on recitation and tajweed, meaning is never engaged", "Students assessed on recitation quality only; no expectation of engagement with meaning", "The Quran is taught as a text to be performed, not a guide to be lived"],
+                "2": ["Meaning is occasionally touched on, a brief translation, a word explanation, but not in a designed or consistent way", "Tadabbur is entirely absent, students are never asked to reflect on the Quran as relevant to their lives", "Quran teachers are resistant to any engagement with meaning as their responsibility"],
+                "3": ["Some reflection on Quran meaning occurs, teachers occasionally share meaning, context, or a brief reflection", "Not systematic, depends on individual teachers and the day", "The tadabbur gap is real and known within the school, named as something to address but not yet actioned"],
+                "4": ["Quran learning integrates meaning, reflection, and application, students encounter the Quran as guidance for their lives", "Tadabbur is a structured component of the programme, students regularly reflect on selected ayaat in relation to their lives", "Quran teachers and Islamic Studies teachers are coordinating, meaning is not entirely absent from one programme when present in another"],
+                "5": ["Students independently connect Quranic verses to their experiences and decisions, the Quran has become a living guide", "Students can share an ayah that has been particularly meaningful to them and explain why, and this is normal conversation, not performance", "Students' relationship with the Quran extends beyond school: they read, reflect, and return to it independently"]
+              }
+            },
+            "3A5": {
+              "name": "Applied Islam - Practical Formation",
+              "focus": "Are students equipped to navigate modern Muslim life through an Islamic lens, or does the curriculum produce knowledge of classical texts with no connection to the real challenges students face?",
+              "rubric": {
+                "1": ["No structured programme connecting Islamic knowledge to real-life application", "Contemporary Muslim challenges (social media, relationships, mental health, career, identity) are entirely absent from Islamic Studies content", "Students learn fiqh in classical terms with no bridge to the decisions they make daily"],
+                "2": ["Some applied content exists but sporadic, individual teachers bring in contemporary examples when they feel it's relevant", "Not designed into the curriculum: applied Islam is improvised, not planned", "Students don't have a framework for thinking Islamically about new situations, they need to be told the ruling"],
+                "3": ["Applied Islam content appears in some year groups or modules but is not systematic across the curriculum", "The Applied Islam Course addresses this but has a scalability problem, it depends on one person", "A Year 9 student may have excellent applied content while a Year 11 student has none"],
+                "4": ["Students regularly engage with how their deen applies to real decisions, technology, relationships, career, mental health, and identity addressed through an Islamic lens", "Applied Islam is designed into the curriculum across year groups, not dependent on one person or one course", "Students have a basic framework for thinking Islamically about new situations, not just a list of rulings"],
+                "5": ["Students demonstrate the ability to derive Islamic guidance for novel situations independently, applied Islam is a thinking skill, not a lesson type", "Students approach new challenges by asking 'what does my deen say?' rather than waiting to be told", "When asked about a challenge they are facing, students can articulate an Islamic perspective on it with genuine depth"]
+              }
+            }
+          }
+        },
+        "3B": {
+          "name": "Islamic Integration Across the General Curriculum",
+          "description": "Does Islam appear in Maths, Science, English, and other subjects, or does it disappear the moment students leave the Islamic Studies room?",
+          "maxScore": 25,
+          "indicators": {
+            "3B1": {
+              "name": "5D Framework Integration",
+              "focus": "Is tawheed-integrated teaching a reality across the general curriculum, or practiced by a few enthusiasts and ignored by most?",
+              "rubric": {
+                "1": ["No evidence of 5D or tawheed-based integration in non-Islamic subjects", "Subject teachers entirely unaware of the framework, or aware but have made no attempt to apply it", "Science, Maths, English, and Humanities are taught in a purely secular intellectual frame"],
+                "2": ["Isolated attempts by individual teachers, one History teacher references Muslim scholars, one Science teacher mentions Allah's creation, but without school-wide approach", "Most general subject teachers cannot explain what 5D Thinking is or how it applies to their subject", "The 5D team exists but has not yet embedded the approach into daily practice across the school"],
+                "3": ["Some teachers attempt integration consistently and effectively", "The school has the infrastructure (5D team, training programme, Turkey PD) but implementation is still limited to a minority of staff", "Students experience Islamic integration in some subjects and not others, it depends entirely on which teacher they have"],
+                "4": ["5D Thinking is embedded across multiple subject areas, Islamic integration observable across at least 3 non-Islamic subjects during the visit", "Most general subject teachers can describe how they integrate 5D Thinking into their planning", "The approach is recognisable: students can identify the Islamic dimension of their general subjects when asked"],
+                "5": ["Students apply 5D thinking independently across subjects, they make the connections themselves, not just when the teacher offers them", "Ask a student from a Science or History class: 'what does your faith have to do with this subject?', they answer substantively without hesitation", "5D Thinking has become the students' own intellectual lens, not a layer the teacher adds"]
+              }
+            },
+            "3B2": {
+              "name": "Cross-Curricular Islamic Perspectives",
+              "focus": "Are Islamic intellectual tradition, Muslim contributions to knowledge, and Islamic ethical perspectives visible across the general curriculum, or does Islam disappear the moment students leave Islamic Studies?",
+              "rubric": {
+                "1": ["Non-Islamic subject teachers have no language or tools for Islamic integration", "Muslim contributions to science, mathematics, philosophy, and history are entirely absent from general subject teaching", "Students experience academic learning and Islamic learning as completely separate domains"],
+                "2": ["Occasional references to Islam in academic subjects but unplanned and inconsistent", "One teacher may mention Ibn Battuta; another may reference Al-Khawarizmi, but these are individual choices, not cultural norm", "No student could describe a pattern of Islamic intellectual tradition across their subjects"],
+                "3": ["Some teachers across subjects confidently reference Islamic intellectual tradition and Muslim contributions", "This is a growing culture rather than an embedded one, visible in some classrooms, absent from many", "Students notice and appreciate it when it happens but experience it as an exception, not the norm"],
+                "4": ["Teachers across subjects regularly reference Islamic intellectual tradition, Muslim contributions, and Islamic ethical perspectives relevant to their discipline", "Students encounter the Islamic intellectual tradition in non-Islamic lessons as a matter of course, it is expected, not exotic", "A student reviewing their school week can identify multiple moments across subjects where their Islamic heritage was part of the lesson"],
+                "5": ["Students surface Islamic intellectual tradition independently in academic work, they don't wait for the teacher to make the connection", "In a student essay or project, Islamic perspectives appear naturally, not because required but because part of how the student thinks", "Students describe their academic learning as strengthening rather than competing with their iman"]
+              }
+            },
+            "3B3": {
+              "name": "Islamic Values in Assessment and Expectations",
+              "focus": "Is academic achievement communicated within an Islamic framework, or does the school measure success in purely secular academic terms?",
+              "rubric": {
+                "1": ["Success defined entirely in secular academic terms, grades, rankings, university entry", "No Islamic framing of academic purpose, effort, excellence, or achievement is not connected to amanah, ibadah, or khilafah", "The school's academic culture and its Islamic culture are entirely separate registers"],
+                "2": ["Some acknowledgment of Islamic values in expectations, 'work hard, it's an amanah', but not embedded in assessment language or school-wide culture", "The message is occasional and inconsistent; the dominant academic culture is competitive and secular", "The Islamic narrative and the assessment system are two separate worlds"],
+                "3": ["Islamic values appear in how some teachers talk about academic work, some frame effort as ibadah and achievement as amanah", "But not embedded in school-wide assessment practice, reports, targets, and recognition still operate in a secular frame", "The gap between the Islamic narrative and the assessment system is noticeable"],
+                "4": ["Academic achievement is understood and communicated within an Islamic framework at school level, not just by individual teachers", "Excellence is framed as amanah, effort as ibadah, failure as a test, in assemblies, communications, and teacher practice", "Assessment conversations with students include the Islamic dimension of why they work and what success means for a Muslim"],
+                "5": ["Students articulate their academic goals in Islamic terms, they experience achievement as a spiritual act, not just a performance", "A student asked 'why does your grade matter?' gives an Islamic answer, not just an academic one", "The Islamic framework for academic life has replaced rather than supplemented a secular one"]
+              }
+            },
+            "3B4": {
+              "name": "Critical Thinking Through an Islamic Lens",
+              "focus": "Are students equipped to evaluate knowledge, media, and culture from an Islamic epistemological foundation, or are they consumers of secular content with no Islamic filter?",
+              "rubric": {
+                "1": ["Students not equipped to critically engage with secular knowledge or media from an Islamic perspective", "Islamic critical thinking is not a feature of any subject, students have no Islamic evaluative framework", "Students are more likely to adjust their Islam to fit what they learn than to evaluate what they learn through their Islam"],
+                "2": ["Some Islamic critique of knowledge introduced in Islamic Studies only, a lesson on media, a session on Islamic critical thinking", "Does not transfer to other subjects or to students' independent engagement with the world", "Students switch off their Islamic lens when they leave Islamic Studies"],
+                "3": ["Some teachers across subjects encourage students to evaluate content through an Islamic lens", "Not systematic, depends on individual teachers and subjects", "Students have some tools for Islamic critical thinking but do not apply them consistently or independently"],
+                "4": ["Students are equipped with Islamic epistemological foundations that they apply across subjects and in their lives", "In multiple observed or reported lessons, students are seen evaluating ideas, claims, or media through an Islamic lens", "Students can articulate what makes something worth believing and worth questioning, from an Islamic standpoint"],
+                "5": ["Students independently evaluate new information, media, and ideas through an Islamic epistemological lens, without being asked", "When encountering a challenging idea (in science, social media, or peer culture), students evaluate it against their Islamic framework", "Students can explain what Islamic epistemology means and why it matters, it is part of their intellectual identity"]
+              }
+            },
+            "3B5": {
+              "name": "Connection Between Subjects and Iman",
+              "focus": "Do students experience their academic learning as part of a seamless Islamic worldview, or do they live a divided intellectual life where school subjects and Islam have nothing to say to each other?",
+              "rubric": {
+                "1": ["Students experience academic and Islamic education as entirely separate, Islam is what happens in Islamic Studies, academic learning is what happens everywhere else", "The two do not speak to each other; students see no connection between their Maths lesson and their iman", "This intellectual separation is the normal experience of the school, felt by both students and teachers"],
+                "2": ["Students occasionally notice connections, a science topic about creation, a history topic about Muslim civilisation, but these are accidental, not planned", "Students describe these moments as surprising rather than expected, they stand out because they are rare", "Students are not equipped with a framework for making the connections themselves"],
+                "3": ["Connections between subjects and iman are intentional in some classrooms and some subjects", "Students have some experience of integrated learning but not consistently enough to reshape how they see their education overall", "Most students still experience their academic and Islamic lives as primarily separate"],
+                "4": ["Students consistently experience their academic learning as part of a seamless Islamic worldview, all knowledge belongs to Allah is an experience, not just a phrase", "In multiple conversations with students, they describe how their subjects connect to their iman without being prompted", "The school's academic culture reinforces rather than competes with Islamic formation"],
+                "5": ["Students articulate a coherent Islamic epistemology, they have a framework for why all knowledge is connected and how learning strengthens iman", "Academic learning and Islamic formation are inseparable in how students understand their education", "Students describe their iman as genuinely strengthened by academic learning, not despite it"]
+              }
+            }
+          }
+        },
+        "3C": {
+          "name": "Prophetic Pedagogy in Teaching Approach",
+          "description": "Does the curriculum reflect how the Prophet (SAW) actually taught, or is it lecture-delivery with Islamic content?",
+          "maxScore": 25,
+          "indicators": {
+            "3C1": {
+              "name": "Personalised and Contextual Teaching",
+              "focus": "Do teachers know each student's Islamic formation needs, and adapt how they teach accordingly, as the Prophet (SAW) gave different guidance based on who was asking?",
+              "rubric": {
+                "1": ["Teaching is entirely uniform, same delivery for every student regardless of Islamic formation background or stage", "No teacher in the school adapts their tarbiyyah approach based on knowledge of individual students", "Differentiation, if it exists, is purely academic, formation needs never considered"],
+                "2": ["Some differentiation for academic ability exists but formation needs are not considered", "Teachers might give a struggling student extra help with content but would not adapt their spiritual approach based on knowing that student personally", "Formation differentiation does not exist as a concept in this school"],
+                "3": ["Some teachers know their students' Islamic formation needs and make informal adjustments", "This is personal instinct, not systematic, a naturally gifted murabbi adapts; others do not", "No school-wide expectation or structure for personalised formation teaching"],
+                "4": ["Teachers understand each student's Islamic formation needs and adapt delivery accordingly", "At least in Islamic Studies and Adab, teachers can describe specific students' formation journeys and how their approach adapts", "Personalised formation teaching is a valued practice, not just an individual teacher's gift"],
+                "5": ["Students describe feeling individually known and guided in their deen, not as a class but as a person", "Teaching adapts to students' spiritual journeys, not just their grades or academic level", "A student who is struggling with doubt receives different pastoral and formative attention than one who is thriving in iman, and both experience this as care, not labelling"]
+              }
+            },
+            "3C2": {
+              "name": "Questions Before Answers",
+              "focus": "Does the teaching culture use questions to draw out student wisdom and invite reflection, as the Prophet (SAW) consistently did, or is teaching primarily information delivery?",
+              "rubric": {
+                "1": ["Teaching across the observed curriculum is almost entirely information delivery, teachers provide answers, students receive them", "Questions used to check comprehension only: recall, definition, procedure", "No higher-order or identity-based inquiry observed in any lesson"],
+                "2": ["Questions asked to check understanding, but none invite reflection on how this connects to who students are", "Questions are closed: there is a right answer the teacher is looking for", "Questions that diverge from expected answers are redirected without exploration"],
+                "3": ["Some teachers use genuine open questions that invite student reflection", "Quality and frequency are inconsistent, these questions appear in some lessons, not others", "Students are not consistently trained or encouraged to ask their own deeper questions"],
+                "4": ["Teachers use thoughtful questions throughout lessons to draw out student thinking and develop wisdom, not just to test knowledge", "Questions invite students to connect knowledge to their identity as Muslims and to make judgements, not just recall facts", "Students feel safe enough to ask their own questions, the culture of inquiry is two-directional"],
+                "5": ["Students ask deep, unprompted questions, the classroom is a space of genuine inquiry modelled on Prophetic pedagogy", "Questions from students reveal real internal engagement: they are processing, wrestling, and growing, not performing", "The questioning culture extends beyond Islamic Studies, students bring Islamic questions to general subjects and vice versa"]
+              }
+            },
+            "3C3": {
+              "name": "Stories and Narrative as Formation",
+              "focus": "Is the Seerah and Islamic narrative a central formation tool in the curriculum, or is it mentioned briefly and moved on from?",
+              "rubric": {
+                "1": ["Prophetic stories and Quranic narratives are not used as teaching tools in the observed curriculum", "Seerah is limited to a historical timeline in Islamic Studies with no formation intent", "The emotional and moral power of Islamic narrative is entirely absent from how the curriculum is taught"],
+                "2": ["Stories used occasionally but as illustration only, supporting a factual point rather than forming the heart of a lesson", "The emotional depth of the Seerah is not drawn on, stories are told, not experienced", "Students receive Seerah passively; it does not appear to shape their moral imagination"],
+                "3": ["Seerah and Islamic stories used as a regular teaching tool in Islamic Studies", "Delivery varies, some teachers bring stories alive with skill; others recount them historically", "Narrative is not yet a consistent formation tool across the broader curriculum"],
+                "4": ["Islamic narrative is a central formation tool, teachers use stories of the Prophets and Sahabah with skill and emotional depth", "Stories are not just told but explored, students asked to sit with them, connect them to their lives, and learn from them", "The Seerah functions as a living reference across subjects, not just as history in Islamic Studies"],
+                "5": ["Students reference Prophetic stories in their own speech and decision-making, narrative has shaped their moral imagination", "When asked how they thought about a difficult decision, students invoke a Prophetic example naturally", "Students can tell the story themselves, they are carriers of Islamic narrative, not just recipients of it"]
+              }
+            },
+            "3C4": {
+              "name": "Experiential and Reflective Learning",
+              "focus": "Is the curriculum designed to create formation experiences, not just transmit formation information?",
+              "rubric": {
+                "1": ["Lessons across the curriculum are entirely theoretical, content explained and tested", "No experiential or reflective dimension exists in any lesson observed", "Students could complete the Islamic curriculum from memory without it affecting their inner life"],
+                "2": ["Brief reflective moments exist in some lessons but are not designed or built into curriculum structure", "Teachers invite reflection occasionally, 'what do you take from this?', without time, structure, or expectation that it produces anything", "Experiential learning does not exist in the Islamic curriculum"],
+                "3": ["Some experiential activities exist within the Islamic curriculum, group reflections, case studies, occasional structured activities", "Quality and regularity are inconsistent", "Muhasabah as a practice is introduced in some contexts but is not a systematic curriculum feature"],
+                "4": ["The curriculum regularly includes experience, reflection, and discussion that develops students' Islamic identity, not just their Islamic knowledge", "Reflective components are designed into lesson plans, not improvised", "Muhasabah, self-examination, is introduced, practiced, and expected across Islamic Studies and Adab"],
+                "5": ["Students seek out reflective spaces, they have developed the habit of muhasabah as a formation practice", "When asked about their Islamic development, students describe their internal journey, not just what they have learned but how they have changed", "Reflective learning has produced students who are self-aware, honest about their struggles, and growing, formation is visible, not just claimed"]
+              }
+            },
+            "3C5": {
+              "name": "Teacher as Murabbi in Curriculum Delivery",
+              "focus": "Is the teacher's role as murabbi embedded in how the curriculum is designed, or is it entirely dependent on individual teacher personality?",
+              "rubric": {
+                "1": ["Curriculum design contains no murabbi dimension, lesson plans are content-focused with no pastoral hooks, formation goals, or reflective components", "Teachers are content deliverers, the curriculum does not expect or support anything else", "Formation, if it happens, is entirely accidental, the result of individual teacher character, not curriculum design"],
+                "2": ["Some teachers take a murabbi approach but this is personal preference, not curriculum expectation", "Lesson plans do not include formation goals, any formative element is added by the teacher on top of the curriculum, not built in", "A teacher who leaves takes their murabbi approach with them; the curriculum does not retain it"],
+                "3": ["The school articulates the expectation that teachers are murabbis in their delivery", "Some curriculum documents begin to reflect this, schemes of work occasionally include a pastoral or formation note", "In practice, the murabbi dimension is mostly personal to the teacher, not embedded in curriculum design"],
+                "4": ["Curriculum designed with the teacher-as-murabbi role embedded, lesson plans include pastoral hooks, formation goals, and reflective components as standard", "Teachers across Islamic subjects plan with formation intent, the curriculum expects it, not just the teacher's personality", "A new teacher taking over a scheme of work would be guided toward a murabbi approach, not just content delivery"],
+                "5": ["Students experience every lesson as an opportunity for formation, not just instruction", "Students name teachers as mentors, not just educators, and connect specific curriculum moments to their personal growth", "The murabbi dimension is self-sustaining: when individual teachers change, the formation intent remains because it is built into the design"]
+              }
+            }
+          }
+        },
+        "3D": {
+          "name": "Student Outcomes & Minimum Nisab",
+          "description": "Is there a clear definition of what a graduate of this school should know and be, and is the curriculum producing it?",
+          "maxScore": 25,
+          "indicators": {
+            "3D1": {
+              "name": "Definition of the Graduate Profile",
+              "focus": "Is there a clear, agreed profile of what a graduate of this school should know and be, and does the curriculum consciously work toward it?",
+              "rubric": {
+                "1": ["No defined Islamic graduate profile exists", "Leadership and staff have vague, personal ideas about what a Year 12 graduate should be like, never articulated, agreed, or written down", "The curriculum is not built toward any articulated formation outcome"],
+                "2": ["Some informal expectations exist, 'we want students who pray regularly', 'we want students confident in their identity', but never written, agreed, or operationalised", "Different staff have different ideas; no shared picture has been built", "The curriculum reflects the graduate profile aspirationally but does not use it as a design tool"],
+                "3": ["Some informal, shared understanding of graduate expectations exists, leadership and Islamic Studies teachers broadly agree on what they're aiming for", "Not written or formally adopted as a curriculum target", "The curriculum is not consciously designed toward a graduate profile but aligns with it loosely"],
+                "4": ["A clear, agreed Islamic graduate profile exists, covering knowledge, practice, character, and identity", "The profile is written and known; curriculum is consciously designed to build toward it", "A teacher reviewing their Year 7 scheme of work can explain how it contributes to the Year 12 graduate profile"],
+                "5": ["Students can articulate the graduate profile in their own words and see themselves working toward it", "The graduate profile functions as a shared vision across the whole school, staff, students, and parents can describe it", "The curriculum is reviewed and adjusted based on whether it is producing the graduate profile, it is a living tool, not a document"]
+              }
+            },
+            "3D2": {
+              "name": "Minimum Nisab Framework",
+              "focus": "Is there a defined minimum threshold of Islamic knowledge and practice that every student should meet, and is the curriculum systematically building toward it?",
+              "rubric": {
+                "1": ["No minimum nisab or threshold has been defined", "No one in the school can answer: 'What should every Year 12 graduate know, practise, and be able to do Islamically, at a minimum?'", "The curriculum has no floor: students may graduate with serious Islamic formation gaps and the school would not know"],
+                "2": ["The idea of a minimum nisab has been discussed", "Some elements exist informally (Quran memorisation targets, salah expectations) but are not coherent or adopted as a school-wide framework", "No systematic check of whether students are meeting a minimum formation threshold"],
+                "3": ["A draft minimum nisab exists in some form, leadership has articulated key components", "Not formally adopted, not embedded in the curriculum, and not used to assess or support individual students", "The school knows what the framework should look like but has not yet built it"],
+                "4": ["A Minimum Nisab framework is in place, covering salah, Quran, du'a, hadith, and character, and used to assess and support every student", "The framework is known by staff and students; students know what the minimum expectations are", "When a student is not meeting the minimum nisab, the school has a pastoral and curriculum response"],
+                "5": ["Students know the Minimum Nisab and take ownership of meeting it, it functions as a personal aspiration, not just a school measure", "Students can describe their own minimum nisab journey, what they have achieved, what they are working toward", "The framework is used generatively, students and teachers use it to plan, celebrate, and pursue formation"]
+              }
+            },
+            "3D3": {
+              "name": "Tracking Islamic Formation",
+              "focus": "Does the school have any systematic way of tracking student Islamic formation, or is formation entirely invisible to the data systems that drive school decisions?",
+              "rubric": {
+                "1": ["No tracking of student formation whatsoever, academic attainment is the only data the school holds on students", "Formation is entirely invisible to any review, reporting, or intervention system", "A student who is academically strong but spiritually struggling would not be identifiable from any school data"],
+                "2": ["Some informal pastoral notes about individual students exist, a year head's awareness, a teacher's concern", "This is personal knowledge, not systemic, it lives in people, not shared records", "When that person moves on, the formation knowledge of that student is lost"],
+                "3": ["Some pastoral recording of student formation exists, concern flags, pastoral meeting notes", "Not systematic: only students with visible problems are tracked; quietly struggling students are invisible", "Formation tracking is reactive and deficit-focused, it records problems, not journeys"],
+                "4": ["A systematic, light-touch approach to tracking student formation exists alongside academic tracking", "Tracking is qualitative, dignified, and growth-focused, not a surveillance tool but a pastoral and formation guide", "All students have some formation record, not just those with problems, and it is used in pastoral conversations"],
+                "5": ["Students reflect on their own formation journey, tracking is a tool for self-awareness, not just staff reporting", "Formation data is used in school-wide review conversations: 'How are students doing in their Islamic identity?' has an evidence-based answer", "The tracking system has produced insights that shaped curriculum or pastoral decisions, it is used, not just maintained"]
+              }
+            },
+            "3D4": {
+              "name": "Student Identity and Sense of Belonging",
+              "focus": "Do graduates leave this school with a secure, positive Muslim identity, or with an identity that is fragile, defensive, or confused?",
+              "rubric": {
+                "1": ["Students appear uncertain about or disconnected from their Muslim identity", "Identity confusion is visible, students who distance themselves from Islamic identity, or who perform it without owning it", "The school has not resolved the dual-identity challenge: students feel torn between being Muslim and being Australian"],
+                "2": ["Some students show a positive Muslim identity but outcomes are highly inconsistent", "Identity strength appears to depend on family background rather than school formation, the school is not systematically producing it", "Students who struggle with identity are not identified or supported"],
+                "3": ["Positive Muslim identity is a visible outcome for many students but inconsistent across year groups", "Some year groups have strong collective Islamic identity; others do not", "The school forms identity in some students but has not yet found a way to do it reliably for all"],
+                "4": ["Graduates leave with a secure, positive Muslim identity, proud of their deen, equipped to live it, and connected to a community of believers", "This is a visible pattern, not an occasional outcome, most students across year groups demonstrate a settled sense of who they are as Muslims", "The school has successfully navigated the dual-identity challenge: students are confidently Muslim and confidently Australian"],
+                "5": ["Students describe their Muslim identity as a source of strength and pride, it shapes their goals, relationships, and sense of self", "Muslim identity is not defended or performed, it is owned and expressed naturally", "Alumni describe their time at this school as formative for who they are as Muslims, not just what they know"]
+              }
+            },
+            "3D5": {
+              "name": "Student Engagement and Love of Deen",
+              "focus": "Do students show genuine love for and curiosity about their deen, or are they compliant with Islamic expectations they do not own?",
+              "rubric": {
+                "1": ["Students are disengaged from or openly resistant to Islamic learning", "Islamic education is experienced as imposed, something done to students, not with them", "Students switch off visibly in Islamic Studies and show no Islamic engagement outside of structured time"],
+                "2": ["Students comply with Islamic expectations, attend salah, sit in Islamic Studies, but show no genuine enthusiasm or personal connection to faith", "The compliance is school-driven, not internally motivated", "Students who leave the school may drop Islamic practices quickly, they were performing for the school, not for Allah"],
+                "3": ["Students are generally cooperative with Islamic education and some show genuine interest", "Love of deen is present in individuals but it is not a school-wide culture", "Many students experience Islamic education as school work, not personal growth"],
+                "4": ["Students across the school show genuine love for and curiosity about their deen, not performance for the teacher but authentic relationship with Allah", "Students initiate Islamic conversations, ask questions beyond what the syllabus requires, and describe their faith as something they choose", "Islamic engagement is visible outside structured time: in how students talk, what they reference, how they navigate challenges"],
+                "5": ["Students initiate Islamic conversations, activities, and questions beyond the timetable, love of deen is a visible, school-wide culture", "A student from this school is identifiably different in their relationship with Islam compared to a student from a school where Islam is merely taught", "Alumni describe their love of deen as something the school cultivated, it is one of the school's visible formation outcomes"]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
