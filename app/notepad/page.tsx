@@ -105,39 +105,49 @@ export default function Notepad() {
   };
 
   useEffect(() => {
-    fetchNotepad(true);
-    const interval = setInterval(() => fetchNotepad(), 5000);
+    fetchNotepad(true); // Initial load
+    
+    // Poll for changes every 10 seconds, but correctly scoped
+    const interval = setInterval(() => {
+      fetchNotepad();
+    }, 10000);
+    
     return () => clearInterval(interval);
-  }, [isDirty]);
+  }, []); // Only run once on mount
 
   // Save to API
   useEffect(() => {
     if (!isDirty) return;
     
     const timer = setTimeout(async () => {
-      try {
-        const response = await fetch('/api/notepad', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ content })
-        });
-        
-        if (response.ok) {
-          const data = await response.json();
-          lastFetchedContent.current = content;
-          setIsDirty(false);
-          
-          if (data.updatedAt) {
-            setLastSaved(new Date(data.updatedAt).toLocaleTimeString());
-          }
-        }
-      } catch (err) {
-        console.error('Failed to save notepad:', err);
-      }
-    }, 1200);
+      saveToServer();
+    }, 1500);
     
     return () => clearTimeout(timer);
   }, [content, isDirty]);
+
+  const saveToServer = async (overrideContent?: string) => {
+    const contentToSave = overrideContent !== undefined ? overrideContent : content;
+    try {
+      const response = await fetch('/api/notepad', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: contentToSave })
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        lastFetchedContent.current = contentToSave;
+        setIsDirty(false);
+        
+        if (data.updatedAt) {
+          setLastSaved(new Date(data.updatedAt).toLocaleTimeString());
+        }
+      }
+    } catch (err) {
+      console.error('Failed to save notepad:', err);
+    }
+  };
 
   const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setContent(e.target.value);
@@ -150,10 +160,11 @@ export default function Notepad() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const clearNotepad = () => {
+  const clearNotepad = async () => {
     if (confirm('Are you sure you want to clear your rough notes? This cannot be undone.')) {
       setContent('');
-      setIsDirty(true);
+      setIsDirty(false); // Reset dirty so polling doesn't block
+      await saveToServer(''); // Instant save
     }
   };
 
