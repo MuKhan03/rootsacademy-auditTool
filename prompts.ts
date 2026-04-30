@@ -35,7 +35,7 @@ import type {
 
 export const MODEL_CONFIG = {
   // Use Claude Sonnet 4.5+ for best results. Adjust model id as needed.
-  model: 'claude-sonnet-4-20250514',
+  model: 'claude-sonnet-4-5-20250929',
   debriefMaxTokens: 4000,
   scoringMaxTokens: 16000,
   patternMaxTokens: 8000,
