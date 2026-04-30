@@ -81,9 +81,8 @@ export default function Notepad() {
   const [notepadId, setNotepadId] = useState<string | null>(null);
   
   const contentRef = React.useRef('');
-  const lastSyncedContent = React.useRef('');
 
-  // Initialise unique ID for this browser
+  // Initialise unique ID and Restore from LocalStorage first
   useEffect(() => {
     let id = localStorage.getItem('roots_notepad_id');
     if (!id) {
@@ -91,64 +90,55 @@ export default function Notepad() {
       localStorage.setItem('roots_notepad_id', id);
     }
     setNotepadId(id);
+
+    // Immediate restore from local backup if available
+    const backup = localStorage.getItem(`roots_notepad_backup_${id}`);
+    if (backup) {
+      setContent(backup);
+      contentRef.current = backup;
+    }
   }, []);
+
+  // Fetch from DB ONLY on mount to sync across devices if needed
+  useEffect(() => {
+    if (notepadId) {
+      const initFetch = async () => {
+        try {
+          const response = await fetch(`/api/notepad/${notepadId}`);
+          if (response.ok) {
+            const data = await response.json();
+            // Only overwrite local if remote has data and we haven't typed yet
+            if (data.content && !contentRef.current) {
+              setContent(data.content);
+              contentRef.current = data.content;
+            }
+          }
+        } catch (e) {}
+      };
+      initFetch();
+    }
+  }, [notepadId]);
 
   // Sync contentRef with state
   useEffect(() => {
     contentRef.current = content;
-  }, [content]);
-
-  // Load from API
-  const fetchNotepad = async (force = false) => {
-    if (!notepadId) return;
-    // CRITICAL: Never fetch if we have unsaved local changes, 
-    // unless it's the very first load
-    if (isDirty && !force) return;
-    
-    try {
-      const response = await fetch(`/api/notepad/${notepadId}`);
-      if (!response.ok) return;
-      
-      const data = await response.json();
-      if (data && data.content !== undefined) {
-        // Only update state if the server content is genuinely different 
-        // and we are NOT currently considered dirty
-        if (data.content !== lastSyncedContent.current && !isDirty) {
-          setContent(data.content);
-          lastSyncedContent.current = data.content;
-        }
-        
-        if (data.updatedAt) {
-          setLastSaved(new Date(data.updatedAt).toLocaleTimeString());
-        }
-      }
-    } catch (err) {
-      console.error('Failed to fetch notepad:', err);
-    }
-  };
-
-  useEffect(() => {
     if (notepadId) {
-      fetchNotepad(true); // Load my specific notepad
-      
-      // Polling is much safer now with unique IDs and dirty checks
-      const interval = setInterval(() => fetchNotepad(), 8000);
-      return () => clearInterval(interval);
+      localStorage.setItem(`roots_notepad_backup_${notepadId}`, content);
     }
-  }, [notepadId, isDirty]);
+  }, [content, notepadId]);
 
-  // Save to API
+  // Auto-Save to Database (Background only)
   useEffect(() => {
     if (!isDirty || !notepadId) return;
     
     const timer = setTimeout(() => {
-      saveToServer();
-    }, 1500);
+      saveToDatabase();
+    }, 2000);
     
     return () => clearTimeout(timer);
   }, [content, isDirty, notepadId]);
 
-  const saveToServer = async (overrideContent?: string) => {
+  const saveToDatabase = async (overrideContent?: string) => {
     if (!notepadId) return;
     const contentToSave = overrideContent !== undefined ? overrideContent : contentRef.current;
     
@@ -161,21 +151,18 @@ export default function Notepad() {
       
       if (response.ok) {
         const data = await response.json();
-        lastSyncedContent.current = contentToSave;
         setIsDirty(false);
-        
         if (data.updatedAt) {
           setLastSaved(new Date(data.updatedAt).toLocaleTimeString());
         }
       }
     } catch (err) {
-      console.error('Failed to save notepad:', err);
+      console.error('Database sync failed, but local copy is safe.');
     }
   };
 
   const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const newVal = e.target.value;
-    setContent(newVal);
+    setContent(e.target.value);
     setIsDirty(true);
   };
 
@@ -186,10 +173,14 @@ export default function Notepad() {
   };
 
   const clearNotepad = async () => {
-    if (confirm('Are you sure you want to clear your rough notes? This cannot be undone.')) {
+    if (confirm('Are you sure you want to clear your rough notes?')) {
       setContent('');
-      setIsDirty(false); 
-      if (notepadId) await saveToServer('');
+      contentRef.current = '';
+      setIsDirty(false);
+      if (notepadId) {
+        localStorage.removeItem(`roots_notepad_backup_${notepadId}`);
+        await saveToDatabase('');
+      }
     }
   };
 
