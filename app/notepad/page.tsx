@@ -77,14 +77,24 @@ export default function Notepad() {
   const [content, setContent] = useState('');
   const [lastSaved, setLastSaved] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+  const [isDirty, setIsDirty] = useState(false);
+  const lastFetchedContent = React.useRef('');
 
   // Load from API
-  const fetchNotepad = async () => {
+  const fetchNotepad = async (force = false) => {
+    if (isDirty && !force) return;
+    
     try {
       const response = await fetch('/api/notepad');
+      if (!response.ok) return;
+      
       const data = await response.json();
       if (data && data.content !== undefined) {
-        setContent(data.content);
+        if (data.content !== lastFetchedContent.current) {
+          setContent(data.content);
+          lastFetchedContent.current = data.content;
+        }
+        
         if (data.updatedAt) {
           setLastSaved(new Date(data.updatedAt).toLocaleTimeString());
         }
@@ -95,16 +105,14 @@ export default function Notepad() {
   };
 
   useEffect(() => {
-    fetchNotepad();
-    
-    // Poll for changes every 3 seconds for collaborative feel
-    const interval = setInterval(fetchNotepad, 3000);
+    fetchNotepad(true);
+    const interval = setInterval(() => fetchNotepad(), 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [isDirty]);
 
   // Save to API
   useEffect(() => {
-    if (!content) return;
+    if (!isDirty) return;
     
     const timer = setTimeout(async () => {
       try {
@@ -113,16 +121,28 @@ export default function Notepad() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ content })
         });
-        const data = await response.json();
-        if (data.updatedAt) {
-          setLastSaved(new Date(data.updatedAt).toLocaleTimeString());
+        
+        if (response.ok) {
+          const data = await response.json();
+          lastFetchedContent.current = content;
+          setIsDirty(false);
+          
+          if (data.updatedAt) {
+            setLastSaved(new Date(data.updatedAt).toLocaleTimeString());
+          }
         }
       } catch (err) {
         console.error('Failed to save notepad:', err);
       }
-    }, 1000);
+    }, 1200);
+    
     return () => clearTimeout(timer);
-  }, [content]);
+  }, [content, isDirty]);
+
+  const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setContent(e.target.value);
+    setIsDirty(true);
+  };
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(content);
@@ -133,6 +153,7 @@ export default function Notepad() {
   const clearNotepad = () => {
     if (confirm('Are you sure you want to clear your rough notes? This cannot be undone.')) {
       setContent('');
+      setIsDirty(true);
     }
   };
 
@@ -184,7 +205,7 @@ export default function Notepad() {
               className="flex-1 w-full notepad-paper px-12 md:px-20 py-12 text-lg leading-[2.5rem] placeholder:text-[#cbd5e1] border-none focus:ring-0 focus:outline-none resize-none bg-transparent"
               placeholder="Start typing your rough notes here..."
               value={content}
-              onChange={(e) => setContent(e.target.value)}
+              onChange={handleContentChange}
             />
             
             <div className="p-4 bg-[#f8fafc] border-t border-[#e2e8f0] flex justify-between items-center px-8">
