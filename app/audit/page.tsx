@@ -220,9 +220,7 @@ export default function AuditTool() {
       return;
     }
     setCurrentAuditor(savedName);
-    fetchSessions();
-    const interval = setInterval(fetchSessions, 5000);
-    return () => clearInterval(interval);
+    fetchSessions(); // Fetch once on load
   }, []);
 
   const fetchRemediations = async () => {
