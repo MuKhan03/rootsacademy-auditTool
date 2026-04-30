@@ -78,21 +78,44 @@ export default function Notepad() {
   const [lastSaved, setLastSaved] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
   const [isDirty, setIsDirty] = useState(false);
-  const lastFetchedContent = React.useRef('');
+  const [notepadId, setNotepadId] = useState<string | null>(null);
+  
+  const contentRef = React.useRef('');
+  const lastSyncedContent = React.useRef('');
+
+  // Initialise unique ID for this browser
+  useEffect(() => {
+    let id = localStorage.getItem('roots_notepad_id');
+    if (!id) {
+      id = 'auditor_' + Math.random().toString(36).substring(2, 15);
+      localStorage.setItem('roots_notepad_id', id);
+    }
+    setNotepadId(id);
+  }, []);
+
+  // Sync contentRef with state
+  useEffect(() => {
+    contentRef.current = content;
+  }, [content]);
 
   // Load from API
   const fetchNotepad = async (force = false) => {
+    if (!notepadId) return;
+    // CRITICAL: Never fetch if we have unsaved local changes, 
+    // unless it's the very first load
     if (isDirty && !force) return;
     
     try {
-      const response = await fetch('/api/notepad');
+      const response = await fetch(`/api/notepad/${notepadId}`);
       if (!response.ok) return;
       
       const data = await response.json();
       if (data && data.content !== undefined) {
-        if (data.content !== lastFetchedContent.current) {
+        // Only update state if the server content is genuinely different 
+        // and we are NOT currently considered dirty
+        if (data.content !== lastSyncedContent.current && !isDirty) {
           setContent(data.content);
-          lastFetchedContent.current = data.content;
+          lastSyncedContent.current = data.content;
         }
         
         if (data.updatedAt) {
@@ -105,31 +128,32 @@ export default function Notepad() {
   };
 
   useEffect(() => {
-    fetchNotepad(true); // Initial load
-    
-    // Poll for changes every 10 seconds, but correctly scoped
-    const interval = setInterval(() => {
-      fetchNotepad();
-    }, 10000);
-    
-    return () => clearInterval(interval);
-  }, []); // Only run once on mount
+    if (notepadId) {
+      fetchNotepad(true); // Load my specific notepad
+      
+      // Polling is much safer now with unique IDs and dirty checks
+      const interval = setInterval(() => fetchNotepad(), 8000);
+      return () => clearInterval(interval);
+    }
+  }, [notepadId, isDirty]);
 
   // Save to API
   useEffect(() => {
-    if (!isDirty) return;
+    if (!isDirty || !notepadId) return;
     
-    const timer = setTimeout(async () => {
+    const timer = setTimeout(() => {
       saveToServer();
     }, 1500);
     
     return () => clearTimeout(timer);
-  }, [content, isDirty]);
+  }, [content, isDirty, notepadId]);
 
   const saveToServer = async (overrideContent?: string) => {
-    const contentToSave = overrideContent !== undefined ? overrideContent : content;
+    if (!notepadId) return;
+    const contentToSave = overrideContent !== undefined ? overrideContent : contentRef.current;
+    
     try {
-      const response = await fetch('/api/notepad', {
+      const response = await fetch(`/api/notepad/${notepadId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ content: contentToSave })
@@ -137,7 +161,7 @@ export default function Notepad() {
       
       if (response.ok) {
         const data = await response.json();
-        lastFetchedContent.current = contentToSave;
+        lastSyncedContent.current = contentToSave;
         setIsDirty(false);
         
         if (data.updatedAt) {
@@ -150,7 +174,8 @@ export default function Notepad() {
   };
 
   const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setContent(e.target.value);
+    const newVal = e.target.value;
+    setContent(newVal);
     setIsDirty(true);
   };
 
@@ -163,8 +188,8 @@ export default function Notepad() {
   const clearNotepad = async () => {
     if (confirm('Are you sure you want to clear your rough notes? This cannot be undone.')) {
       setContent('');
-      setIsDirty(false); // Reset dirty so polling doesn't block
-      await saveToServer(''); // Instant save
+      setIsDirty(false); 
+      if (notepadId) await saveToServer('');
     }
   };
 

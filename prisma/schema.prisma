@@ -104,7 +104,7 @@ model Remediation {
 }
 
 model Notepad {
-  id        String   @id @default("global")
+  id        String   @id @default(cuid())
   content   String?  @db.Text
   updatedAt DateTime @updatedAt
 }
