@@ -150,9 +150,10 @@ export default function Notepad() {
         if (response.ok) {
           const data = await response.json();
           // Only overwrite if the remote data has changed
-          if (data.content !== undefined && data.content !== contentRef.current) {
-            setContent(data.content);
-            contentRef.current = data.content;
+          const newContent = data.content || '';
+          if (newContent !== contentRef.current) {
+            setContent(newContent);
+            contentRef.current = newContent;
           }
         }
       } catch (e) {}
