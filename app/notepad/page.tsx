@@ -222,7 +222,7 @@ export default function Notepad() {
                 <div className="w-2.5 h-2.5 rounded-full bg-slate-200" />
               </div>
               <div className="mono text-[10px] text-[#94a3b8] flex items-center gap-2">
-                <FileText size={12} /> rough_notes.txt
+                <FileText size={16} /> ROUGH_NOTES_{localStorage.getItem('roots_auditor_name')?.toUpperCase() || 'ANONYMOUS'}.TXT
               </div>
             </div>
             
