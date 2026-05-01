@@ -84,15 +84,13 @@ export default function Notepad() {
 
   // Initialise unique ID and Restore from LocalStorage first
   useEffect(() => {
-    let id = localStorage.getItem('roots_notepad_id');
-    if (!id) {
-      id = 'auditor_' + Math.random().toString(36).substring(2, 15);
-      localStorage.setItem('roots_notepad_id', id);
-    }
-    setNotepadId(id);
+    const auditorName = localStorage.getItem('roots_auditor_name') || 'anonymous';
+    // Create a safe, deterministic ID tied to the user's name
+    const safeId = 'notepad_' + auditorName.toLowerCase().replace(/[^a-z0-9]/g, '_');
+    setNotepadId(safeId);
 
     // Immediate restore from local backup if available
-    const backup = localStorage.getItem(`roots_notepad_backup_${id}`);
+    const backup = localStorage.getItem(`roots_notepad_backup_${safeId}`);
     if (backup) {
       setContent(backup);
       contentRef.current = backup;
