@@ -103,7 +103,7 @@ export default function Notepad() {
     if (notepadId) {
       const initFetch = async () => {
         try {
-          const response = await fetch(`/api/notepad/${notepadId}`);
+          const response = await fetch(`/api/notepad/${notepadId}?t=${Date.now()}`, { cache: 'no-store' });
           if (response.ok) {
             const data = await response.json();
             // Only overwrite local if remote has data and we haven't typed yet
@@ -146,7 +146,7 @@ export default function Notepad() {
       if (isFocused || isDirty) return;
 
       try {
-        const response = await fetch(`/api/notepad/${notepadId}`);
+        const response = await fetch(`/api/notepad/${notepadId}?t=${Date.now()}`, { cache: 'no-store' });
         if (response.ok) {
           const data = await response.json();
           // Only overwrite if the remote data has changed
