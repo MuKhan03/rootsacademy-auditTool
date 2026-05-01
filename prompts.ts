@@ -287,51 +287,58 @@ For each candidate pattern: validate against the evidence, write it up if it hol
 export function extractJSON<T = unknown>(text: string): T | null {
   if (!text) return null;
 
-  // Strip markdown code fences
-  let cleaned = text.replace(/```json\s*/gi, '').replace(/```\s*/g, '').trim();
+  // 1. Strip markdown code fences if present
+  let cleaned = text.replace(/```[A-Za-z]*\n/g, '').replace(/```\s*/g, '').trim();
 
-  // Try direct parse
+  // 2. Locate the first possible JSON starting brace/bracket
+  const firstBrace = cleaned.indexOf('{');
+  const firstBracket = cleaned.indexOf('[');
+  let start = -1;
+  let closeChar = '';
+
+  if (firstBrace !== -1 && (firstBracket === -1 || firstBrace < firstBracket)) {
+    start = firstBrace;
+    closeChar = '}';
+  } else if (firstBracket !== -1) {
+    start = firstBracket;
+    closeChar = ']';
+  }
+
+  if (start === -1) {
+    console.error('extractJSON: Could not find any open brace/bracket in the response.', text);
+    return null; // Clearly not JSON
+  }
+
+  // 3. Slice the string to start from the JSON root
+  cleaned = cleaned.substring(start);
+
+  // 4. Locate the last possible matching closing character
+  const lastClose = cleaned.lastIndexOf(closeChar);
+  if (lastClose !== -1) {
+    cleaned = cleaned.substring(0, lastClose + 1);
+  }
+
+  // 5. Try to parse directly (handles preambles and clean JSON perfectly)
   try {
     return JSON.parse(cleaned) as T;
-  } catch {
-    // Find first { or [ and matching close, respecting strings and escapes
-    const firstBrace = cleaned.indexOf('{');
-    const firstBracket = cleaned.indexOf('[');
-    let start = -1;
-    let openChar = '';
-    let closeChar = '';
-
-    if (firstBrace !== -1 && (firstBracket === -1 || firstBrace < firstBracket)) {
-      start = firstBrace;
-      openChar = '{';
-      closeChar = '}';
-    } else if (firstBracket !== -1) {
-      start = firstBracket;
-      openChar = '[';
-      closeChar = ']';
-    }
-
-    if (start === -1) return null;
-
-    let depth = 0;
-    let inString = false;
-    let escape = false;
-    for (let i = start; i < cleaned.length; i++) {
-      const c = cleaned[i];
-      if (escape) { escape = false; continue; }
-      if (c === '\\') { escape = true; continue; }
-      if (c === '"') { inString = !inString; continue; }
-      if (inString) continue;
-      if (c === openChar) depth++;
-      else if (c === closeChar) {
-        depth--;
-        if (depth === 0) {
-          const candidate = cleaned.substring(start, i + 1);
-          try { return JSON.parse(candidate) as T; } catch { return null; }
+  } catch (e) {
+    // 6. If it fails, it might be heavily truncated or malformed at the end.
+    // As a best-effort repair for partial JSON, we can try appending missing closures:
+    try {
+      return JSON.parse(cleaned + closeChar) as T;
+    } catch {
+      try {
+        return JSON.parse(cleaned + ']' + closeChar) as T;
+      } catch {
+        try {
+          return JSON.parse(cleaned + '}' + closeChar) as T;
+        } catch {
+          console.error(`extractJSON: Failed to parse JSON even after best-effort repair. Error: ${e}`);
+          console.error('Raw problematic text segment:', cleaned);
+          return null;
         }
       }
     }
-    return null;
   }
 }
 
@@ -386,8 +393,10 @@ export async function generateDebrief(
   });
   const parsed = extractJSON<DebriefQuestion[]>(text);
   if (!Array.isArray(parsed)) {
-    console.error('Debrief parse failed. Raw response:', text);
-    throw new Error('Could not parse debrief questions from model output.');
+    console.error('====== DEBRIEF PARSE FAILED ======');
+    console.error('Raw Claude Response:\n', text);
+    console.error('==================================');
+    throw new Error('Could not parse debrief questions from model output. Check Vercel server logs.');
   }
   return parsed;
 }
@@ -406,8 +415,10 @@ export async function generateScores(
   });
   const parsed = extractJSON<ScoringResult>(text);
   if (!parsed || !Array.isArray(parsed.scores)) {
-    console.error('Scoring parse failed. Raw response:', text);
-    throw new Error('Could not parse scores from model output.');
+    console.error('====== SCORING PARSE FAILED ======');
+    console.error('Raw Claude Response:\n', text);
+    console.error('==================================');
+    throw new Error('Could not parse scores from model output. Check Vercel server logs.');
   }
   return parsed;
 }
@@ -428,8 +439,10 @@ export async function generatePatterns(
     rejected: Array<{ candidate_pattern: string; reason: string }>;
   }>(text);
   if (!parsed || !Array.isArray(parsed.patterns)) {
-    console.error('Pattern parse failed. Raw response:', text);
-    throw new Error('Could not parse patterns from model output.');
+    console.error('====== PATTERN PARSE FAILED ======');
+    console.error('Raw Claude Response:\n', text);
+    console.error('==================================');
+    throw new Error('Could not parse patterns from model output. Check Vercel server logs.');
   }
   return parsed;
 }

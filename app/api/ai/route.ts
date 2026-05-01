@@ -31,7 +31,10 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json(result);
   } catch (error: any) {
-    console.error('AI API Error:', error);
+    console.error('================ AI API ERROR ================');
+    console.error('Message:', error.message);
+    if (error.stack) console.error('Stack:', error.stack);
+    console.error('==============================================');
     return NextResponse.json({ 
       error: { message: error.message || 'An error occurred during AI processing.' } 
     }, { status: 500 });
