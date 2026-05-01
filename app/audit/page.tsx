@@ -59,6 +59,13 @@ import sessionTypeData from '@/session_types.json';
 const FRAMEWORKS: any = frameworkData.frameworks;
 const SESSION_TYPES: any = sessionTypeData.sessionTypes;
 
+// Count total unique indicators across all frameworks dynamically
+const TOTAL_INDICATOR_COUNT: number = Object.values(FRAMEWORKS).reduce((total: number, fw: any) => {
+  return total + Object.values(fw.sections || {}).reduce((sTotal: number, sec: any) => {
+    return sTotal + Object.keys(sec.indicators || {}).length;
+  }, 0);
+}, 0);
+
 // ============================================================================
 // AI API CALL HELPERS
 // ============================================================================
@@ -997,13 +1004,13 @@ export default function AuditTool() {
               <div className="text-4xl h-display">
                 {(Object.values(summary.indicatorAverages).reduce((a, b) => a + (b.average || 0), 0) / Object.values(summary.indicatorAverages).length || 0).toFixed(1)}
               </div>
-              <div className="text-xs text-[#8a857c] mt-2">Average across 18 indicators</div>
+              <div className="text-xs text-[#8a857c] mt-2">Average across {TOTAL_INDICATOR_COUNT} indicators</div>
             </div>
             <div className="card p-6 bg-white border-none shadow-sm flex flex-col justify-center">
               <div className="mono text-[#8a857c] mb-2 flex items-center gap-2">
                 <Notebook size={14} /> Indicator Coverage
               </div>
-              <div className="text-4xl h-display">{Object.keys(summary.indicatorAverages).length}/18</div>
+              <div className="text-4xl h-display">{Object.keys(summary.indicatorAverages).length}/{TOTAL_INDICATOR_COUNT}</div>
               <div className="text-xs text-[#8a857c] mt-2">Assessed in this cycle</div>
             </div>
           </div>
