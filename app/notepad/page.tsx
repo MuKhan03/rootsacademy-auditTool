@@ -80,12 +80,15 @@ export default function Notepad() {
   const [isDirty, setIsDirty] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [notepadId, setNotepadId] = useState<string | null>(null);
+  const [auditorDisplayName, setAuditorDisplayName] = useState('ANONYMOUS');
   
   const contentRef = React.useRef('');
 
   // Initialise unique ID and Restore from LocalStorage first
   useEffect(() => {
     const auditorName = localStorage.getItem('roots_auditor_name') || 'anonymous';
+    setAuditorDisplayName(auditorName.toUpperCase());
+    
     // Create a safe, deterministic ID tied to the user's name
     const safeId = 'notepad_' + auditorName.toLowerCase().replace(/[^a-z0-9]/g, '_');
     setNotepadId(safeId);
@@ -249,7 +252,7 @@ export default function Notepad() {
                 <div className="w-2.5 h-2.5 rounded-full bg-slate-200" />
               </div>
               <div className="mono text-[10px] text-[#94a3b8] flex items-center gap-2">
-                <FileText size={16} /> ROUGH_NOTES_{localStorage.getItem('roots_auditor_name')?.toUpperCase() || 'ANONYMOUS'}.TXT
+                <FileText size={16} /> ROUGH_NOTES_{auditorDisplayName}.TXT
               </div>
             </div>
             
