@@ -429,8 +429,19 @@ export default function AuditTool() {
                   An internal space for capturing authentic growth and character formation through structured observation.
                 </p>
                 {currentAuditor && (
-                  <div className="mt-4 flex items-center gap-2 text-sm font-medium text-[#1ca8a2]">
-                    <UserCheck size={16} /> Welcome back, {currentAuditor}
+                  <div className="mt-4 flex items-center gap-3">
+                    <span className="flex items-center gap-2 text-sm font-medium text-[#1ca8a2]">
+                      <UserCheck size={16} /> Welcome back, {currentAuditor}
+                    </span>
+                    <button 
+                      onClick={() => {
+                        localStorage.removeItem('roots_auditor_name');
+                        window.location.href = '/';
+                      }}
+                      className="text-xs text-[#94a3b8] hover:text-[#1ca8a2] underline underline-offset-2 transition-colors"
+                    >
+                      (Change User)
+                    </button>
                   </div>
                 )}
               </div>
