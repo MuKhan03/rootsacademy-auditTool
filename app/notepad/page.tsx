@@ -78,6 +78,7 @@ export default function Notepad() {
   const [lastSaved, setLastSaved] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
   const [isDirty, setIsDirty] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
   const [notepadId, setNotepadId] = useState<string | null>(null);
   
   const contentRef = React.useRef('');
@@ -135,6 +136,31 @@ export default function Notepad() {
     
     return () => clearTimeout(timer);
   }, [content, isDirty, notepadId]);
+
+  // Safe Polling (Background sync for external changes)
+  useEffect(() => {
+    if (!notepadId) return;
+
+    const poll = async () => {
+      // DANGER GUARD: Do not pull data if the user is actively typing or has unsaved local changes!
+      if (isFocused || isDirty) return;
+
+      try {
+        const response = await fetch(`/api/notepad/${notepadId}`);
+        if (response.ok) {
+          const data = await response.json();
+          // Only overwrite if the remote data has changed
+          if (data.content !== undefined && data.content !== contentRef.current) {
+            setContent(data.content);
+            contentRef.current = data.content;
+          }
+        }
+      } catch (e) {}
+    };
+
+    const interval = setInterval(poll, 4000);
+    return () => clearInterval(interval);
+  }, [notepadId, isFocused, isDirty]);
 
   const saveToDatabase = async (overrideContent?: string) => {
     if (!notepadId) return;
@@ -231,6 +257,8 @@ export default function Notepad() {
               placeholder="Start typing your rough notes here..."
               value={content}
               onChange={handleContentChange}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
             />
             
             <div className="p-4 bg-[#f8fafc] border-t border-[#e2e8f0] flex justify-between items-center px-8">
