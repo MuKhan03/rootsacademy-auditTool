@@ -284,6 +284,40 @@
         "Quality of writing, professionalism, fitness-for-purpose",
         "Date of last update - is the document live or dormant?"
       ]
+    },
+
+    "staff_culture_review": {
+      "name": "Staff Culture and Wellbeing Review",
+      "description": "Focused observation and discussion measuring staff wellbeing, their understanding of the behaviour management frameworks, and the collaborative tarbiyyah culture.",
+      "icon": "Heart",
+      "primaryFrameworks": ["F2C", "F2D"],
+      "secondaryFrameworks": ["F1D", "F2A"],
+      "primaryIndicators": [
+        "2C1", "2C2", "2C3", "2C4", "2C5",
+        "2D1", "2D2", "2D3", "2D4", "2D5"
+      ],
+      "secondaryIndicators": [
+        "1D1", "1D2", "1D3", "1D4",
+        "2A2", "2A3"
+      ],
+      "contextFields": [
+        { "key": "staff_roles", "label": "Staff roles involved (e.g., Head of Year, Pastoral Lead)", "type": "textarea", "required": true },
+        { "key": "topic_focus", "label": "Topic focus (e.g., Wellbeing, Behavioural incident)", "type": "text", "required": true },
+        { "key": "format", "label": "Format (e.g., 1-on-1, staff briefing, incident review)", "type": "text", "required": false },
+        { "key": "duration", "label": "Duration (minutes)", "type": "number", "required": false }
+      ],
+      "scanFor": [
+        "Do staff feel supported in managing difficult behaviour?",
+        "Is the behaviour framework viewed through an Islamic lens or purely punitive?",
+        "Are staff growing in their own Islamic formation?",
+        "Are staff experiencing burnout, or do they feel part of a meaningful mission?",
+        "How is staff wellbeing actively measured and supported?",
+        "Is misbehaviour treated as communication or rule violation?",
+        "Is there genuine murabbi culture across multiple adults?",
+        "Do ALL staff see themselves as formative agents in Islamic development?",
+        "Do staff share language and approach to Islamic formation?",
+        "Does the school support staff mental health through an integrated Islamic framework?"
+      ]
     }
   },
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronRight, FileText, Users, BookOpen, Building2, Eye, UserCheck, Plus, Download, ArrowLeft, Sparkles, AlertCircle, CheckCircle2, Clock, Trash2, Edit3 } from 'lucide-react';
+import { ChevronRight, FileText, Users, BookOpen, Building2, Eye, UserCheck, Plus, Download, ArrowLeft, Sparkles, AlertCircle, CheckCircle2, Clock, Trash2, Edit3, Heart } from 'lucide-react';
 
 // ============================================================================
 // FRAMEWORK DATA - The audit framework encoded directly
@@ -278,6 +278,25 @@ const SESSION_TYPES = {
       "Language overheard - Islamic vocabulary natural or absent?",
       "Masjid/prayer space - treated as sacred or functional?",
       "Student self-regulation around Islamic norms without teachers",
+    ]
+  },
+  staff_culture_review: {
+    name: "Staff Culture and Wellbeing Review",
+    icon: Heart,
+    primary: ["F2C", "F2D"],
+    secondary: ["F1D", "F2A"],
+    fields: ["staff_roles", "topic_focus", "format"],
+    scanFor: [
+      "Do staff feel supported in managing difficult behaviour?",
+      "Is the behaviour framework viewed through an Islamic lens or purely punitive?",
+      "Are staff growing in their own Islamic formation?",
+      "Are staff experiencing burnout, or do they feel part of a meaningful mission?",
+      "How is staff wellbeing actively measured and supported?",
+      "Is misbehaviour treated as communication or rule violation?",
+      "Is there genuine murabbi culture across multiple adults?",
+      "Do ALL staff see themselves as formative agents in Islamic development?",
+      "Do staff share language and approach to Islamic formation?",
+      "Does the school support staff mental health through an integrated Islamic framework?",
     ]
   },
   document_review: {
